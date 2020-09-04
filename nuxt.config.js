@@ -1,4 +1,6 @@
 
+import dotenv from 'dotenv'; dotenv.config()
+
 export default {
   /*
   ** Nuxt rendering mode
@@ -23,7 +25,12 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    env: {
+      CONTENTFUL_SPACE: process.env.CONTENTFUL_SPACE,
+      CONTENTFUL_ACCESSTOKEN: process.env.CONTENTFUL_ACCESSTOKEN,
+      CONTENTFUL_ENVIRONMENT: process.env.CONTENTFUL_ENVIRONMENT
+    }
   },
   /*
   ** Global CSS
@@ -35,6 +42,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/contentful', '~/plugins/posts'
   ],
   /*
   ** Auto import components
@@ -53,8 +61,13 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/markdownit'
   ],
+  markdownit: {
+    injected: true
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
