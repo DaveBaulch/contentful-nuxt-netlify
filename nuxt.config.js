@@ -67,6 +67,11 @@ export default {
     '@nuxtjs/markdownit',
     '@nuxtjs/style-resources'
   ],
+  styleResources: {
+    scss: [
+      '@/assets/sass/utilities/_variables.scss'
+    ]
+  },
   markdownit: {
     injected: true
   },

@@ -5,34 +5,23 @@
         Contentful blogs
       </h1>
       <section v-for="(post, index) in posts" :key="index">
-        <h2 class="title">
-          <nuxt-link :to="`/blog/${post.fields.slug}`">
-            {{ post.fields.title }}
-          </nuxt-link>
-        </h2>
-        <p class="author">
-          By {{ post.fields.author.fields.name }}
-        </p>
-        <p class="description">
-          {{ post.fields.description }}<br>
-          <nuxt-link :to="`/blog/${post.fields.slug}`" class="more">
-            Read more ⟶
-          </nuxt-link>
-        </p>
+        <ArticlePreview :post="post" />
       </section>
     </div>
   </main>
 </template>
 
 <script>
+import ArticlePreview from '~/components/elements/ArticlePreview.vue'
+
 export default {
+  components: {
+    ArticlePreview
+  },
   computed: {
     posts () {
       return this.$store.state.posts
     }
-  },
-  head: {
-    title: 'Dave Contenful, Latest Posts'
   }
 }
 </script>

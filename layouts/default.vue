@@ -12,7 +12,7 @@
 
 <style>
 html {
-  font-family:
+  /* font-family:
     'Source Sans Pro',
     -apple-system,
     BlinkMacSystemFont,
@@ -20,8 +20,8 @@ html {
     Roboto,
     'Helvetica Neue',
     Arial,
-    sans-serif;
-  font-size: 16px;
+    sans-serif; */
+  /* font-size: 16px; */
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;

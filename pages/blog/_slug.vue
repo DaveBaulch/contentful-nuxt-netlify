@@ -5,6 +5,10 @@
         {{ currentPost.fields.title }}
       </h1>
       <article v-html="$md.render(currentPost.fields.body)" />
+
+      <nuxt-link to="/blog" class="back-link">
+        < Back
+      </nuxt-link>
     </div>
     <p v-else class="single-post__loading">
       Loading
@@ -27,3 +31,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.back-link {
+  margin: 2rem 0;
+  color: $red;
+}
+</style>

@@ -33,16 +33,16 @@ main {
 }
 
 article {
-  padding: $padding 6.8rem;
-  min-height: $page-height - $header-height;
+  // padding: $padding 6.8rem;
+  // min-height: $page-height - $header-height;
 
-  @if $vertical-center-content {
-    @include flexVerticalCenter;
+  // @if $vertical-center-content {
+  //   @include flexVerticalCenter;
 
-    > * {
-      flex-grow: 1;
-    }
-  }
+  //   > * {
+  //     flex-grow: 1;
+  //   }
+  // }
 
   // io videos
   .modal-shallow & {

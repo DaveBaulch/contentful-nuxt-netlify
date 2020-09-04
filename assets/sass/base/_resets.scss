@@ -1,27 +1,35 @@
 html {
-  font-size: 62.5%;
+  //Prevent iOS input highlighting
   box-sizing: border-box;
+  font-size: $base-font-size;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
-  font-size: 1.6rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: $white;
+  color: $brand-dark;
+  font-size: $body-font-mobile;
   line-height: $line-height;
   text-align: left;
-  color: $brand-dark;
+
+  @include breakpoint(lg) {
+    font-size: $body-font-desktop;
+  }  
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
-  font-size: inherit;
-  line-height: inherit;
+html,
+body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
 }
 
-*:focus {
-  outline: none;
-}
-
-button {
-  border: none;
-  color: inherit;
-  background-color: transparent;
+img {
+  display: block;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+  // option to make images responsive by default
+  max-width: 100%;
 }
