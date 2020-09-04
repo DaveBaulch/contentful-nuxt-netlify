@@ -2,11 +2,6 @@
   <div>
     <ul class="nav">
       <li class="nav__item">
-        <nuxt-link to="/" class="nav__item">
-          Home
-        </nuxt-link>
-      </li>
-      <li class="nav__item">
         <nuxt-link to="/about" class="nav__item">
           About
         </nuxt-link>
@@ -19,6 +14,11 @@
       <li class="nav__item">
         <nuxt-link to="/blog" class="nav__item">
           Blog
+        </nuxt-link>
+      </li>
+      <li class="nav__item">
+        <nuxt-link to="/contact" class="nav__item">
+          Contact
         </nuxt-link>
       </li>
     </ul>

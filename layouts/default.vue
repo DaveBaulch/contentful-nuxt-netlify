@@ -1,7 +1,12 @@
 <template>
-  <div>
-    <SiteNavigation />
-    <Nuxt />
+  <div class="page-wrapper">
+    <div class="page-inner">
+      <SiteHeader />
+      <main class="main">
+        <Nuxt />
+      </main>
+    </div>
+    <SiteFooter />
   </div>
 </template>
 

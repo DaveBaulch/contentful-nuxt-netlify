@@ -1,0 +1,19 @@
+.header-wrapper {
+  width: 100%;
+  padding: 0 30px;
+  background-color: $white;
+}
+
+.header {
+  width: auto;
+  max-width: $breakpoint-xl;
+  margin: 0 auto;
+  background-color: $white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.site-logo {
+  max-width: 80px;
+}

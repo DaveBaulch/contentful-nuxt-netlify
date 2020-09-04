@@ -1,7 +1,7 @@
 @import 'utilities/variables';
 @import 'utilities/mixins';
 @import 'utilities/animations';
-@import 'utilities/modal-content';
+// @import 'utilities/modal-content';
 
 @import 'base/fonts';
 @import 'base/resets';
@@ -15,11 +15,17 @@
 @import 'helpers/spacing';
 @import 'helpers/colors';
 
-@import 'plugins/modal';
-@import 'plugins/translate-inline';
+// @import 'plugins/modal';
+// @import 'plugins/translate-inline';
 
 @import 'layout/layout';
-@import 'layout/page-transition';
-@import 'layout/two-columns';
+// @import 'layout/page-transition';
+// @import 'layout/two-columns';
+
+@import 'global/header';
+@import 'global/footer';
+@import 'global/site-navigation';
+
+@import 'components/buttons';
 
 

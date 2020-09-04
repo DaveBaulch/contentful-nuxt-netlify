@@ -6,7 +6,7 @@
       </h1>
       <section v-for="(post, index) in posts" :key="index">
         <h2 class="title">
-          <nuxt-link :to="post.fields.slug">
+          <nuxt-link :to="`/blog/${post.fields.slug}`">
             {{ post.fields.title }}
           </nuxt-link>
         </h2>
@@ -15,7 +15,7 @@
         </p>
         <p class="description">
           {{ post.fields.description }}<br>
-          <nuxt-link :to="post.fields.slug" class="more">
+          <nuxt-link :to="`/blog/${post.fields.slug}`" class="more">
             Read more ⟶
           </nuxt-link>
         </p>
