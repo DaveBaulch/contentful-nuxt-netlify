@@ -1,0 +1,214 @@
+// Fonts
+$font: sans-serif; // Available weights 300,400,600
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+
+// Globals
+$line-height: 1.25;
+$vertical-center-content: true;
+
+// Dimensions
+$page-width: 100%;
+$page-height: auto;
+
+// Elements
+$header-height: 150px;
+$logo-width: 62px;
+$fullscreen-close-button-size: 40px;
+$info-button-size: 30px;
+$modal-close-button-size: 40px;
+
+// Buttons
+$button-vertical-padding: 10px;
+$button-horizontal-padding: 30px;
+$button-icon-size: 30px;
+$button-border-radius: 20px;
+$button-font-size: 14px;
+$button-light-box-shadow-color: #002F6C;
+
+// Menu
+$menu-side-padding: 10px;
+$menu-image-size: 30px;
+$menu-button-padding: 14px;
+$menu-width: 150px;
+$menu-icon-size: 44px;
+
+// Tabs
+$tabs-menu-width: 71px;
+$tabs-menu-height: 70px;
+
+// Colors
+$white: #fff;
+$grey: #e0e9ee;
+$light-grey: #fafafa;
+$dark-grey: #4b5664;
+$black: #000;
+$blue: #1e4273;
+$blue-light: #3a8abf;
+$blue-lighter: #00aeef;
+$blue-lightest: #e5eef5;
+$blue-pale: #f6fafc;
+$blue-dark: #002f6c; // all text and headings
+$blue-black: #080808;
+$cyan: #36d1dc;
+$cyan-dark: #5b86e5;
+$green: #8ef09b;
+$green-dark: #23c39e;
+$green-lime: #00a81a;
+$orange: #f9d423;
+$orange-dark: #f83600;
+$red: #dc5c36;
+$red-dark: #dc3689;
+$purple: #8287c3;
+$pink: #cba5bc;
+
+
+// Nav
+$nav-dark-blue: $blue;
+$nav-light-blue: #43a2d8;
+
+// Bullets
+$bullet-dark-blue: $blue;
+$bullet-light-blue: #43a2d8;
+
+$bullet-dark-red: #dc3689;
+$bullet-light-red: #dc5c36;
+
+// Buttons
+$button-dark-blue: $blue;
+$button-light-blue: #43a2d8;
+
+// White button
+$btn-white-text:#10396b;
+
+// Brand Colours
+$brand-white: $white;
+$brand-white-alt: $light-grey;
+$brand-black: $black;
+$brand-primary: $blue;
+$brand-primary-alt: $blue-light;
+$brand-dark: $blue-dark;
+$brand-dark-alt: $blue-black;
+$brand-lightest: $blue-lightest;
+$brand-light: $blue-lighter;
+$brand-light-alt: $blue-pale;
+
+// iO text highlight - class taken from OralB
+$blue-text: #09afed;
+
+// iO colours
+$io-blue-black: #15183d;
+$io-blue-black-light: #17478b;
+
+$io-grey: #919191;
+$io-grey-light: #e2e2e2;
+
+// Background color variables
+.bg-white {
+  background-color: $brand-white;
+}
+
+.bg-white-alt {
+  background-color: $brand-white-alt;
+}
+
+.bg-black {
+  background-color: $brand-black;
+}
+
+.bg-primary {
+  background-color: $brand-primary;
+}
+
+.bg-primary-alt {
+  background-color: $brand-primary-alt;
+}
+
+.bg-dark {
+  background-color: $brand-dark;
+}
+
+.bg-dark-alt {
+  background-color: $brand-dark-alt;
+}
+
+.bg-light {
+  background-color: $brand-lightest;
+}
+
+.bg-light-alt {
+  background-color: $brand-light-alt;
+}
+
+// Brand Gradients
+$gradient-blue: $blue, $blue-light;
+$gradient-cyan: $cyan, $cyan-dark;
+$gradient-white: $white, $grey;
+$gradient-orange: $orange-dark, $orange;
+
+// Feature Icon Gradient Colours
+$feature-icon__blue: #afddec, #7dc4db;
+$feature-icon__purple: #c1c9ef, #929dd0;
+$feature-icon__pink: #f2d1e7, #d8a6c5;
+
+//Tabs
+$gradient-tabs: #005da5, #011025;
+$gradient-tabs-active: $gradient-cyan;
+
+// Font Sizes
+$font-largest: 3rem;
+$font-larger: 2.6rem;
+$font-large: 1.8rem;
+$font-small: 1.4rem;
+
+// Boxes
+$box-shadow-colour: lightgrey;
+$box-shadow: 0 5px 32px $box-shadow-colour;
+$border-radius: 10px;
+$overlay: rgba($black, 0.8);
+
+// Margin
+$margin: 24px;
+
+// Padding
+$padding: 12px;
+
+// Modals
+$modal-padding: 40px;
+$modal-h1: $blue-dark;
+$modal-border-radius: 10px;
+
+$modal-close-light: #005DA5;
+$modal-close-dark: #011025;
+
+$modal-header-light-blue: #43a2d8;
+$modal-header-dark-blue: $blue;
+
+$modal-background: $light-grey;
+
+// iO modals: .io-modal
+$io-modal-close-light:  #36d1dc; //cyan
+$io-modal-close-dark: #5b86e5;  // cyan dark
+
+// Systems modal styles .modal-alt
+$modal-alt-underline-light: #36d1dc; //cyan
+$modal-alt-underline-dark: #5b86e5;  // cyan dark
+
+$modal-alt-close-light:#43a2d8;
+$modal-alt-close-dark: #1e4273;
+
+
+// Tables
+$th-dark-blue: $blue;
+$th-light-blue: #43a2d8;
+$td-blue: $blue-dark;
+$table-footer: #147fc7;
+
+// Z-Index
+$above-modal: 1000;
+$fullscreen: 1001;
+
+// Calculator
+$calculatorDataWidth: 718px;
+$calculatorTableBorderColor: #dde0e5;

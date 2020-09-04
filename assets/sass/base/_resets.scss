@@ -1,0 +1,27 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: $line-height;
+  text-align: left;
+  color: $brand-dark;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+*:focus {
+  outline: none;
+}
+
+button {
+  border: none;
+  color: inherit;
+  background-color: transparent;
+}

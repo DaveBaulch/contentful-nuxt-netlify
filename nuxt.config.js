@@ -36,6 +36,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/sass/_base-styles.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -63,7 +64,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    '@nuxtjs/style-resources'
   ],
   markdownit: {
     injected: true

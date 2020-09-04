@@ -1,0 +1,233 @@
+div.v--modal {
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  pointer-events: all;
+  @include flexColumn;
+}
+
+div.v--modal-overlay {
+  background-color: transparent;
+  position: fixed;
+  z-index: 1000;
+  top: $header-height;
+  left: 0;
+  width: $page-width;
+  padding: $modal-padding;
+  @include bodyHeight;
+
+  .v--modal-background-click {
+    pointer-events: none;
+    @include flexCenter;
+    @include fill;
+  }
+
+  .v--modal {
+    overflow: visible;
+    @include fill;
+
+    // prevent the modal from being positioned by the plugin
+    // we use flex to center it instead
+    top: auto !important;
+    left: auto !important;
+  }
+
+  .v--modal-close {
+    pointer-events: all;
+  }
+
+  // overlay style modals
+  // info dialog with content only and dark overlay
+  &.overlay {
+    top: 0;
+    height: $page-height;
+    background-color: $overlay;
+    z-index: 1002;
+
+    .v--modal-body {
+      padding: 4rem;
+      @include modalContent;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+  
+  &.modal--fullscreen {
+    .v--modal-body {
+      overflow: visible;
+    }
+  }
+}
+
+
+
+// genius/features
+div.v--modal-overlay[data-modal='genius.features'] {
+  padding-left: 200px;
+  padding-right: 120px;
+
+  header {
+    justify-content: inherit;
+    padding: 24px 80px;
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: $font-weight-normal;
+      text-transform: uppercase;
+    }
+
+    h1 + h2 {
+      margin-top: 0.3rem;
+    }
+  }
+
+  .media-video__video {
+    background: $white;
+  }
+
+  footer {
+    position: relative;
+
+    ul {
+      font-size: 2rem;
+      margin-top: 0;
+    }
+
+    small {
+      position: absolute;
+      bottom: 18px;
+      left: 0;
+      font-size: 1rem;
+      padding-left: 11.5rem;
+    }
+  }
+}
+
+
+// manual/features
+div.v--modal-overlay[data-modal='manual.features'] {
+  padding-left: 200px;
+  padding-right: 120px;
+  top: 132px;
+
+  header {
+    justify-content: inherit;
+    padding: 24px 80px 24px 177px;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: $font-weight-normal;
+      text-transform: none;
+    }
+  }
+
+  footer {
+    position: relative;
+    height: 135px;
+
+    ul {
+      font-size: 2rem;
+      margin-top: 0;
+    }
+
+    small {
+      position: absolute;
+      bottom: 18px;
+      left: 0;
+      font-size: 1rem;
+      padding-left: 11.5rem;
+    }
+  }
+}
+
+// paste/claim
+div.v--modal-overlay[data-section='paste.claim'] {
+  .v--modal {
+    box-shadow: none;
+  }
+
+  .v--modal-body {
+    background-color: $white;
+  }
+
+  header {
+    padding: 0 6rem;
+    justify-content: flex-start;
+
+    hgroup {
+      padding: 0;
+    }
+  }
+
+  [data-grid-no-padding] {
+    height: 100%;
+    padding: 0;
+    align-items: center;
+  }
+}
+
+// paste/features
+div.v--modal-overlay[data-modal='paste.features'] {
+  padding-left: 200px;
+  padding-right: 120px;
+  top: 132px;
+
+  header {
+    justify-content: inherit;
+    padding: 24px 20px 24px 65px;
+
+    figure {
+      flex: 1 0 auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+    }
+  }
+
+  .v--modal-header-inner {
+    padding-left: 16px;
+  }
+
+  .v--modal-body {
+    height: 380px;
+  }
+
+  .modal__body {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 0 84px;
+    text-align: center;
+    height: auto;
+    opacity: 0;
+    padding: 0;
+
+    > div {
+      margin: 0 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1 0 auto;
+    }
+  }
+
+  footer {
+    position: relative;
+    height: 135px;
+
+    ul {
+      font-size: 2rem;
+      margin-top: 0;
+    }
+
+    small {
+      position: absolute;
+      bottom: 18px;
+      left: 0;
+      font-size: 1rem;
+      padding-left: 11.5rem;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <SiteNavigation />
     <Nuxt />
   </div>
 </template>

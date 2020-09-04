@@ -1,0 +1,61 @@
+// https://www.bram.us/2016/05/02/prevent-overscroll-bounce-in-ios-mobilesafari-pure-css/
+// Prevent iOS overflow scrolling
+html,
+body {
+  position: fixed;
+  overflow: hidden;
+}
+
+// section {
+//   position: relative;
+//   overflow: hidden;
+//   @include pageSize;
+// }
+
+.page-wrapper {
+  @include pageSize;
+}
+
+main {
+  // overflow-y: scroll;
+  // overflow-x: hidden;
+  // -webkit-overflow-scrolling: touch;
+  // background-color: $brand-light-alt;
+  // @include pageFixed;
+
+  // hide the scrollbar on webkit
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
+
+  // ensure fullscreen elements are on top
+  .fullscreen & {
+    z-index: 1;
+  }
+}
+
+article {
+  padding: $padding 6.8rem;
+  min-height: $page-height - $header-height;
+
+  @if $vertical-center-content {
+    @include flexVerticalCenter;
+
+    > * {
+      flex-grow: 1;
+    }
+  }
+
+  // io videos
+  .modal-shallow & {
+    min-height: 0;
+  }
+}
+
+.modal-big-image {
+  position: absolute;
+  bottom: 0;
+  left: $padding;
+  z-index: 1000;
+}
+
