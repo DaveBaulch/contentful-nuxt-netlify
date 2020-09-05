@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import logo from 'assets/assets/layout/logo.png'
+import logo from 'assets/layout/logo.png'
 
 export default {
   props: {
@@ -26,3 +26,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.site-logo {
+  max-width: 80px;
+}
+</style>

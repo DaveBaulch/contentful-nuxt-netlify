@@ -4,10 +4,12 @@
       <h1 class="single-post__title">
         {{ currentPost.fields.title }}
       </h1>
-      <article v-html="$md.render(currentPost.fields.body)" />
+      <article>
+        {{ $md.render(currentPost.fields.body) }}
+      </article>
 
       <nuxt-link to="/blog" class="back-link">
-        < Back
+        Back
       </nuxt-link>
     </div>
     <p v-else class="single-post__loading">

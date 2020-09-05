@@ -1,12 +1,12 @@
 <template>
   <div class="page-wrapper">
     <div class="page-inner">
-      <SiteHeader />
+      <AppHeader />
       <main class="main">
         <Nuxt />
       </main>
     </div>
-    <SiteFooter />
+    <AppFooter />
   </div>
 </template>
 

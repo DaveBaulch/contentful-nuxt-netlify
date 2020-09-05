@@ -30,4 +30,12 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+.nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav__item {
+  list-style: none;
+}
 </style>
