@@ -10,7 +10,7 @@
             <div class="hero__content-inner">
               <p>{{ content }}</p>
             </div>
-            <a href="" class="button hero__button">View more</a>
+            <a :href="link" class="button hero__button">View more</a>
           </div>
         </div>
       </div>
@@ -30,6 +30,10 @@ export default {
       default: null
     },
     content: {
+      type: String,
+      default: null
+    },
+    link: {
       type: String,
       default: null
     }
@@ -55,7 +59,6 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  // height: 100%;
   background-size: cover;
   z-index: 2;
 }

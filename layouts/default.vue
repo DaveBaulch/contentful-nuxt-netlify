@@ -2,9 +2,7 @@
   <div class="page-wrapper">
     <div class="page-inner">
       <AppHeader />
-      <main class="main">
-        <Nuxt />
-      </main>
+      <Nuxt />
     </div>
     <AppFooter />
   </div>

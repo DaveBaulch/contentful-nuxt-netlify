@@ -1,7 +1,10 @@
 <template>
   <div class="footer-wrapper">
     <footer class="footer">
-      &copy; Dave Baulch 2020
+      <p class="copyright">
+        &copy; Dave Baulch 2020
+      </p>
+      <social-links />
     </footer>
   </div>
 </template>
