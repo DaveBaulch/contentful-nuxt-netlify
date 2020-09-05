@@ -5,8 +5,11 @@
         {{ post.fields.title }}
       </nuxt-link>
     </h2>
-    <p class="author">
+    <!-- <p class="author">
       By {{ post.fields.author.fields.name }}
+    </p> -->
+    <p class="author">
+      By {{ post.fields.authorName }}
     </p>
     <p class="description">
       {{ post.fields.description }}<br>
