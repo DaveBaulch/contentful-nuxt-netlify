@@ -50,6 +50,7 @@ export default {
 @import '~assets/sass/utilities/_mixins.scss';
 
 .hero {
+  min-height: 348px;
   position: relative;
   background-color: $light-grey;
 }

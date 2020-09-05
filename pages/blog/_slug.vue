@@ -5,9 +5,7 @@
         <h1 class="single-post__title">
           {{ currentPost.fields.title }}
         </h1>
-        <article>
-          {{ $md.render(currentPost.fields.body) }}
-        </article>
+        <article v-html="$md.render(currentPost.fields.body)" />
 
         <nuxt-link to="/blog" class="back-link">
           Back
