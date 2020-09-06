@@ -6,8 +6,8 @@
         name="contact"
         action="/"
         method="POST"
-        netlify
-        netlify-honeypot="bot-field"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
         class="contact-form"
       >
         <input type="hidden" name="form-name" value="contact">
