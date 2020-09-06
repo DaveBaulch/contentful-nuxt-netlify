@@ -5,12 +5,12 @@
         {{ post.fields.title }}
       </nuxt-link>
     </h2>
-    <!-- <p class="author">
-      By {{ post.fields.author.fields.name }}
-    </p> -->
     <p class="author">
-      By {{ post.fields.authorName }}
+      By {{ post.fields.author.fields.name }} , {{ post.fields.author.fields.email }}
     </p>
+    <!-- <p class="author">
+      By {{ post.fields.authorName }}
+    </p> -->
     <p class="description">
       {{ post.fields.description }}<br>
       <nuxt-link :to="`/blog/${post.fields.slug}`" class="more">

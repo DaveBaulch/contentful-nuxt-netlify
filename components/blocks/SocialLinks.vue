@@ -25,10 +25,19 @@ export default {}
   }
 
   .social-links__link {
+    margin: 2rem;
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    color: $white;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $white;
+      text-decoration: underline;
+    }
   }
 </style>

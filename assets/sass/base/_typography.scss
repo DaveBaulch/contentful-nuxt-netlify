@@ -3,6 +3,8 @@ body {
   font-weight: $font-weight-normal;
 }
 
+// Generic heading styling
+
 h1,
 h2,
 h3,
@@ -10,87 +12,136 @@ h4,
 h5 {
   margin: 0;
   padding: 0;
+  margin-top: 2rem;
+  color: $color-headings;
+  font-weight: bold;
 }
 
-// h1 {
-//   font-size: $font-larger;
-//   font-weight: $font-weight-bold;
-// }
+h1 {
+  font-size: 3rem;
 
-// h2 {
-//   font-size: $font-large;
-//   font-weight: $font-weight-bold;
-// }
-
-// h3 {
-//   font-size: $font-large;
-//   font-weight: $font-weight-bold;
-// }
-
-strong,
-b {
-  font-weight: $font-weight-bold;
+  @include breakpoint(lg) {
+    font-size: 3.2rem;
+  }
 }
 
-small {
-  font-size: $font-small;
+h2 {
+  font-size: 2.2rem;
+
+  @include breakpoint(lg) {
+    font-size: 2.4rem;
+  }
 }
 
-sup, sub {
-  font-size: 65%;
-  line-height: 0;
-  position: relative;
+h3 {
+  font-size: 2rem;
+
+  @include breakpoint(lg) {
+    font-size: 2.2rem;
+  }
 }
 
-sup {
-  top: -0.5em;
+h4 {
+  font-size: 1.8rem;
+
+  @include breakpoint(lg) {
+    font-size: 2rem;
+  }
 }
 
-sub {
-  bottom: -0.5em;
+h5 {
+  font-size: 1.6rem;
+
+  @include breakpoint(lg) {
+    font-size: 1.8rem;
+  }
 }
 
-/* List item styles */
-ul {
-  margin: 28px 0 0 0;
+// Link styles
+
+a {
+  color: $color-link-active;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: $color-link-visited;
+}
+
+a:hover {
+  color: $color-link-hover;
+}
+
+a:focus {
+  color: $color-link-hover;
+  outline: 2px solid $red;
+}
+
+// Standard text paragraphs
+
+p {
+  margin: 2rem 0 0 0;
   padding: 0;
-  font-size: 18px;
-  line-height: 1.33;
 }
 
-li {
-  position: relative;
-  padding-left: 35px;
+// List styles
+ol,
+ul {
   margin: 0;
+  padding: 0;
   list-style: none;
 
-  // &::before {
-  //   content: '';
-  //   display: block;
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 20px;
-  //   height: 20px;
-  //   background-image: linear-gradient($bullet-light-blue, $bullet-dark-blue);
-  //   border-radius: 8px;
-  // }
-
-  // &.star {
-  //   &::before {
-  //     top: -4px;
-  //     width: 24px;
-  //     height: 24px;
-  //     // background-image: url('~assets/icons/list-star.svg');
-  //     background-repeat: no-repeat;
-  //   }
-  // }
-
-  // + li {
-  //   margin-top: 23px;
-  // }
+  &:not([class]) {
+    margin: 0 1.22rem 0.8rem 1.5rem;
+    list-style-position: inside;
+  }
 }
 
-.color-blue {
-  color: #09AFED
+ol:not([class]) {
+  list-style-type: decimal;
+}
+
+ul:not([class]) {
+  list-style-type: disc;
+}
+
+// Definition list styles
+
+dl {
+}
+
+dt {
+  font-weight: bold;
+}
+
+// Opinionated styling of typographic elements
+
+hr {
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+  display: block;
+  border: 0;
+  border-top: 1px solid $grey-light;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0 10px;
+}
+
+ins {
+  background: $red;
+  color: $black;
+  text-decoration: none;
+}
+
+mark {
+  font-style: italic;
+  font-weight: bold;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }

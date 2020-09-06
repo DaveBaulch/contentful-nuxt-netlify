@@ -16,7 +16,8 @@ export const actions = {
       if (!client) { return }
       const response = await client.getEntries({
         // content_type: 'blogPost'
-        content_type: 'blogItems'
+        content_type: 'blogItems',
+        include: 2
       })
       if (response.items.length > 0) {
         // commit('updatePosts', response.items)

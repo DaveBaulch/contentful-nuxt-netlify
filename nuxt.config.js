@@ -43,7 +43,12 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '~/plugins/contentful', '~/plugins/posts'
+    '~/plugins/contentful',
+    '~/plugins/posts',
+    {
+      src: '~/plugins/v-waypoint.js',
+      mode: 'client'
+    }
   ],
   /*
   ** Auto import components
