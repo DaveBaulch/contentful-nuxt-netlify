@@ -6,8 +6,8 @@
         name="contact"
         action="/"
         method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
+        netlify
+        netlify-honeypot="bot-field"
         class="contact-form"
       >
         <input type="hidden" name="form-name" value="contact">
@@ -18,7 +18,7 @@
         <input id="email" type="text" name="email" placeholder="Your email..">
 
         <label for="message">Message</label>
-        <textarea id="message" name="subject" placeholder="Write something.." />
+        <textarea id="message" name="message" placeholder="Write something.." />
 
         <input type="submit" value="Submit">
       </form>
