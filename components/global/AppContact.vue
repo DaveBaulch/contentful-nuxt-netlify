@@ -2,7 +2,14 @@
   <div :class="{ visible: contactActive }" class="contact-wrapper">
     <close-button />
     <div class="contact">
-      <form class="contact-form">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        class="contact-form"
+      >
+        <input type="hidden" name="form-name" value="ask-question">
         <label for="name">Name</label>
         <input id="name" type="text" name="name" placeholder="Your name..">
 

@@ -2,6 +2,11 @@
 import dotenv from 'dotenv'; dotenv.config()
 
 export default {
+  env: {
+    CONTENTFUL_SPACE: process.env.CONTENTFUL_SPACE,
+    CONTENTFUL_ACCESSTOKEN: process.env.CONTENTFUL_ACCESSTOKEN,
+    CONTENTFUL_ENVIRONMENT: process.env.CONTENTFUL_ENVIRONMENT
+  },
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
@@ -25,12 +30,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
-    env: {
-      CONTENTFUL_SPACE: process.env.CONTENTFUL_SPACE,
-      CONTENTFUL_ACCESSTOKEN: process.env.CONTENTFUL_ACCESSTOKEN,
-      CONTENTFUL_ENVIRONMENT: process.env.CONTENTFUL_ENVIRONMENT
-    }
+    ]
   },
   /*
   ** Global CSS
