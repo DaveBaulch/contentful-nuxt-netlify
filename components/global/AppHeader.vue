@@ -3,7 +3,6 @@
     <header class="header">
       <app-logo alt="Daves homepage" />
       <app-navigation />
-      <!-- <default-button text="Contact Us" /> -->
     </header>
   </div>
 </template>

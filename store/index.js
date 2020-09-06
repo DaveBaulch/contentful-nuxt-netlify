@@ -4,12 +4,6 @@ export const state = () => ({
   posts: null
 })
 
-export const mutations = {
-  updatePosts: (state, posts) => {
-    state.posts = posts
-  }
-}
-
 export const actions = {
   async getPosts ({ commit }) {
     try {
@@ -29,5 +23,11 @@ export const actions = {
     } catch (err) {
       console.error(err)
     }
+  }
+}
+
+export const mutations = {
+  updatePosts: (state, posts) => {
+    state.posts = posts
   }
 }

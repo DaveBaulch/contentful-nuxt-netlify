@@ -4,6 +4,7 @@
       <AppHeader />
       <Nuxt />
     </div>
+    <AppContact />
     <AppFooter />
   </div>
 </template>

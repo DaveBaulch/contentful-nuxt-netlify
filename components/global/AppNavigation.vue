@@ -1,30 +1,28 @@
 <template>
-  <div class="nav-wrapper">
-    <ul
-      class="nav"
-      :class="{ visible: menuActive }"
-    >
-      <li class="nav__item">
-        <nuxt-link to="/about" class="nav__link" @click.native="toggleMenu">
-          About
-        </nuxt-link>
-      </li>
-      <li class="nav__item">
-        <nuxt-link to="/cv" class="nav__link" @click.native="toggleMenu">
-          CV
-        </nuxt-link>
-      </li>
-      <li class="nav__item">
-        <nuxt-link to="/blog" class="nav__link" @click.native="toggleMenu">
-          Blog
-        </nuxt-link>
-      </li>
-      <li class="nav__item">
-        <nuxt-link to="/contact" class="nav__link" @click.native="toggleMenu">
-          Contact
-        </nuxt-link>
-      </li>
-    </ul>
+  <div>
+    <div class="nav-wrapper" :class="{ visible: menuActive }">
+      <ul
+        class="nav"
+      >
+        <li class="nav__item">
+          <nuxt-link to="/about" class="nav__link" @click.native="toggleMenu">
+            About
+          </nuxt-link>
+        </li>
+        <li class="nav__item">
+          <nuxt-link to="/cv" class="nav__link" @click.native="toggleMenu">
+            CV
+          </nuxt-link>
+        </li>
+        <li class="nav__item">
+          <nuxt-link to="/blog" class="nav__link" @click.native="toggleMenu">
+            Blog
+          </nuxt-link>
+        </li>
+      </ul>
+
+      <contact-button text="Contact Us" />
+    </div>
 
     <button
       type="button"
@@ -50,7 +48,7 @@ export default {
       return !this.menuActive ? 'Open' : 'Close'
     },
     buttonClass () {
-      return !this.menuActive ? 'is-active' : ''
+      return !this.menuActive ? '' : 'is-active'
     }
   },
   methods: {
@@ -64,7 +62,7 @@ export default {
 <style lang="scss" scoped>
 @import '~assets/sass/utilities/_mixins.scss';
 
-.nav {
+.nav-wrapper {
   width: 100%;
   height: 100%;
   background-color: $red;
@@ -100,6 +98,13 @@ export default {
     &.visible {
       display: flex;
     }
+  }
+}
+
+.nav {
+  @include breakpoint(lg) {
+    display: flex;
+    flex-direction : row;
   }
 }
 

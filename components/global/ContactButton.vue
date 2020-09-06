@@ -1,5 +1,5 @@
 <template>
-  <button class="button">
+  <button class="button" @click="toggleContact">
     <slot>
       <span v-if="text">{{ text }}</span>
     </slot>
@@ -12,6 +12,11 @@ export default {
     text: {
       type: String,
       default: null
+    }
+  },
+  methods: {
+    toggleContact () {
+      this.$store.commit('contact/toggleContact')
     }
   }
 }
