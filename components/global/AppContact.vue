@@ -9,7 +9,7 @@
         data-netlify-honeypot="bot-field"
         class="contact-form"
       >
-        <input type="hidden" name="form-name" value="ask-question">
+        <input type="hidden" name="form-name" value="contact">
         <label for="name">Name</label>
         <input id="name" type="text" name="name" placeholder="Your name..">
 
