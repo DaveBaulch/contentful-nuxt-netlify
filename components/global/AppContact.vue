@@ -13,17 +13,46 @@
         @submit.prevent="checkForm"
       >
         <input type="hidden" name="form-name" value="contact">
-        <label for="name">Name</label>
-        <input id="name" v-model="form.name" type="text" name="name" placeholder="Your name..">
-        <span class="error" :class="{ visible: formEntered && !nameValid }">Please add your name</span>
+        <div ref="name-wrapper" class="form-item">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            v-model="form.name"
+            type="text"
+            name="name"
+            placeholder="Your name.."
+            @focus="onFocus"
+            @blur="onBlur"
+          >
+          <span class="error" :class="{ visible: formEntered && !nameValid }">Please add your name</span>
+        </div>
 
-        <label for="email">Email address</label>
-        <input id="email" v-model="form.email" type="text" name="email" placeholder="Your email..">
-        <span class="error" :class="{ visible: formEntered && !emailValid }">Please add a valid email address</span>
+        <div ref="email-wrapper" class="form-item">
+          <label for="email">Email address</label>
+          <input
+            id="email"
+            v-model="form.email"
+            type="text"
+            name="email"
+            placeholder="Your email.."
+            @focus="onFocus"
+            @blur="onBlur"
+          >
+          <span class="error" :class="{ visible: formEntered && !emailValid }">Please add a valid email address</span>
+        </div>
 
-        <label for="message">Message</label>
-        <textarea id="message" v-model="form.message" name="message" placeholder="Write something.." />
-        <span class="error" :class="{ visible: formEntered && !messageValid }">Please add your name</span>
+        <div ref="message-wrapper" class="form-item">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            v-model="form.message"
+            name="message"
+            placeholder="Write something.."
+            @focus="onFocus"
+            @blur="onBlur"
+          />
+          <span class="error" :class="{ visible: formEntered && !messageValid }">Please add your name</span>
+        </div>
 
         <input type="submit" value="Submit">
       </form>
@@ -83,6 +112,12 @@ export default {
     }
   },
   methods: {
+    onFocus (e) {
+      this.$refs[e.target.name + '-wrapper'].classList.add('focus')
+    },
+    onBlur (e) {
+      this.$refs[e.target.name + '-wrapper'].classList.remove('focus')
+    },
     encode (data) {
       return Object.keys(data)
         .map(
@@ -146,7 +181,6 @@ export default {
   opacity: 0;
   text-align: center;
   padding-top: 50px;
-  font-size: 3rem;
   display: none;
 
   &.visible {
@@ -201,5 +235,9 @@ export default {
   &.visible {
     display: block;
   }
+}
+
+.form-item.focus {
+  border: 1px solid #f0f;
 }
 </style>

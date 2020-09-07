@@ -1,5 +1,5 @@
 <template>
-  <button class="button" @click="toggleContact">
+  <button id="contact-button" class="button" @click="toggleContact">
     <slot>
       <span v-if="text">{{ text }}</span>
     </slot>
@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 export default {
   props: {
     text: {
@@ -17,6 +18,7 @@ export default {
   methods: {
     toggleContact () {
       this.$store.commit('contact/toggleContact')
+      this.$nextTick(() => document.getElementById('close-button').focus())
     }
   }
 }

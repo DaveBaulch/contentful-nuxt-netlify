@@ -1,5 +1,7 @@
 <template>
   <button
+    id="close-button"
+    ref="closebutton"
     type="button"
     class="button close-button"
     @click="toggleContact"
@@ -19,6 +21,7 @@ export default {
       this.$store.commit('contact/formSubmitted', false)
       this.$store.commit('contact/formSuccess', false)
       this.$store.commit('contact/formError', false)
+      this.$nextTick(() => document.getElementById('contact-button').focus())
     }
   }
 }
@@ -37,5 +40,9 @@ export default {
   top: 10px;
   z-index: 200;
   background: transparent url('~assets/layout/icon-mobile-menu-close.svg') no-repeat center center;
+
+  &:focus {
+    border: 2px solid #f0f;
+  }
 }
 </style>

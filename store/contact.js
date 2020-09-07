@@ -6,9 +6,6 @@ export const state = () => ({
   formSubmitted: false,
   formSuccess: false,
   formError: false
-  // nameValid: false,
-  // emailValid: false,
-  // messageValid: false
 })
 
 export const getters = {
