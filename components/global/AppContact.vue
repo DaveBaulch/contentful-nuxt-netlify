@@ -1,7 +1,8 @@
 <template>
   <div :class="{ visible: contactActive }" class="contact-wrapper">
     <close-button />
-    <div class="contact">
+
+    <div class="contact-block" :class="{ hidden: formSubmitted }">
       <form
         name="contact"
         action="/"
@@ -24,6 +25,16 @@
         <input type="submit" value="Submit">
       </form>
     </div>
+
+    <div class="success-block" :class="{ visible: formSuccess }">
+      <h2>Thank You!</h2>
+      <p>Thanks for getting in touch - if you have any further questions please emeil: <a href="mailto: davebaulch@yahoo.co.uk">davebaulch@yahoo.co.uk</a></p>
+    </div>
+
+    <div class="error-block" :class="{ visible: formError }">
+      <h2>Oh no!</h2>
+      <p>It looks like something went wrong - please email me directly at: <a href="mailto: davebaulch@yahoo.co.uk">davebaulch@yahoo.co.uk</a></p>
+    </div>
   </div>
 </template>
 
@@ -44,6 +55,15 @@ export default {
   computed: {
     contactActive () {
       return this.$store.state.contact.contactActive
+    },
+    formSubmitted () {
+      return this.$store.state.contact.formSubmitted
+    },
+    formSuccess () {
+      return this.$store.state.contact.formSuccess
+    },
+    formError () {
+      return this.$store.state.contact.formError
     }
   },
   methods: {
@@ -55,6 +75,9 @@ export default {
         .join('&')
     },
     handleSubmit () {
+      const self = this
+      this.$store.commit('contact/formSubmitted')
+
       const axiosConfig = {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }
@@ -68,10 +91,12 @@ export default {
       ).then(function (response) {
         // handle success
         console.log('success' + response)
+        self.$store.commit('contact/formSuccess')
       })
         .catch(function (response) {
-          // handle error
+        // handle error
           console.log('fail' + response)
+          self.$store.commit('contact/formError')
         })
     }
   }
@@ -99,6 +124,36 @@ export default {
     transition: all 0.4s ease-in-out;
     display: block;
     z-index: 200;
+  }
+}
+
+.contact-block {
+  &.hidden {
+    display: none;
+  }
+}
+
+.thankyou-block {
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+}
+
+.success-block {
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+}
+
+.error-block {
+  display: none;
+
+  &.visible {
+    display: none;
   }
 }
 
