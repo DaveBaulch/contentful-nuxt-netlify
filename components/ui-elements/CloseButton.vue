@@ -40,9 +40,16 @@ export default {
   top: 10px;
   z-index: 200;
   background: transparent url('~assets/layout/icon-mobile-menu-close.svg') no-repeat center center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 
   &:focus {
     border: 2px solid #f0f;
   }
+
+  .contact-wrapper.visible & {
+    opacity: 1;
+  }
+
 }
 </style>

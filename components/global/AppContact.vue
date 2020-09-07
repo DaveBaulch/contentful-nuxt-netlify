@@ -2,70 +2,78 @@
   <div :class="{ visible: contactActive }" class="contact-wrapper">
     <close-button />
 
-    <div class="contact-block" :class="{ hidden: formSubmitted }">
-      <form
-        name="contact"
-        action="/"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        class="contact-form"
-        @submit.prevent="checkForm"
-      >
-        <input type="hidden" name="form-name" value="contact">
-        <div ref="name-wrapper" class="form-item">
-          <label for="name">Name</label>
-          <input
-            id="name"
-            v-model="form.name"
-            type="text"
-            name="name"
-            placeholder="Your name.."
-            @focus="onFocus"
-            @blur="onBlur"
+    <div class="contact-inner">
+      <div class="left-col">
+        some text goes here
+      </div>
+
+      <div class="right-col">
+        <div class="contact-block" :class="{ hidden: formSubmitted }">
+          <form
+            name="contact"
+            action="/"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            class="contact-form"
+            @submit.prevent="checkForm"
           >
-          <span class="error" :class="{ visible: formEntered && !nameValid }">Please add your name</span>
+            <input type="hidden" name="form-name" value="contact">
+            <div ref="name-wrapper" class="form-item">
+              <label for="name">Name*</label>
+              <input
+                id="name"
+                v-model="form.name"
+                type="text"
+                name="name"
+                placeholder="Your name.."
+                @focus="onFocus"
+                @blur="onBlur"
+              >
+              <span class="error" :class="{ visible: formEntered && !nameValid }">Please add your name</span>
+            </div>
+
+            <div ref="email-wrapper" class="form-item">
+              <label for="email">Email address*</label>
+              <input
+                id="email"
+                v-model="form.email"
+                type="text"
+                name="email"
+                placeholder="Your email.."
+                @focus="onFocus"
+                @blur="onBlur"
+              >
+              <span class="error" :class="{ visible: formEntered && !emailValid }">Please add a valid email address</span>
+            </div>
+
+            <div ref="message-wrapper" class="form-item">
+              <label for="message">Message*</label>
+              <textarea
+                id="message"
+                v-model="form.message"
+                name="message"
+                placeholder="Write something.."
+                @focus="onFocus"
+                @blur="onBlur"
+              />
+              <span class="error" :class="{ visible: formEntered && !messageValid }">Please add your name</span>
+            </div>
+
+            <input type="submit" value="Submit">
+          </form>
         </div>
 
-        <div ref="email-wrapper" class="form-item">
-          <label for="email">Email address</label>
-          <input
-            id="email"
-            v-model="form.email"
-            type="text"
-            name="email"
-            placeholder="Your email.."
-            @focus="onFocus"
-            @blur="onBlur"
-          >
-          <span class="error" :class="{ visible: formEntered && !emailValid }">Please add a valid email address</span>
+        <div class="success-block" :class="{ visible: formSuccess }">
+          <h2>Thank you!</h2>
+          <p>Thanks for getting in touch - if you have any further questions please email: <a href="mailto: davebaulch@yahoo.co.uk">davebaulch@yahoo.co.uk</a></p>
         </div>
 
-        <div ref="message-wrapper" class="form-item">
-          <label for="message">Message</label>
-          <textarea
-            id="message"
-            v-model="form.message"
-            name="message"
-            placeholder="Write something.."
-            @focus="onFocus"
-            @blur="onBlur"
-          />
-          <span class="error" :class="{ visible: formEntered && !messageValid }">Please add your name</span>
+        <div class="error-block" :class="{ visible: formError }">
+          <h2>Oh no!</h2>
+          <p>It looks like something went wrong - please email me directly at: <a href="mailto: davebaulch@yahoo.co.uk">davebaulch@yahoo.co.uk</a></p>
         </div>
-
-        <input type="submit" value="Submit">
-      </form>
-    </div>
-
-    <div class="success-block" :class="{ visible: formSuccess }">
-      <h2>Thank you!</h2>
-      <p>Thanks for getting in touch - if you have any further questions please email: <a href="mailto: davebaulch@yahoo.co.uk">davebaulch@yahoo.co.uk</a></p>
-    </div>
-
-    <div class="error-block" :class="{ visible: formError }">
-      <h2>Oh no!</h2>
-      <p>It looks like something went wrong - please email me directly at: <a href="mailto: davebaulch@yahoo.co.uk">davebaulch@yahoo.co.uk</a></p>
+      </div>
     </div>
   </div>
 </template>
@@ -169,25 +177,108 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/sass/utilities/_mixins.scss';
+
 .contact-wrapper {
   width: 100%;
   height: 100%;
-  background-color: $red;
-  position: absolute;
-  left: 0;
+  position: fixed;
+  display: flex;
   top: 0;
   right: 0;
   bottom: 0;
-  opacity: 0;
-  text-align: center;
-  padding-top: 50px;
-  display: none;
+  left: 0;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  color: #333;
+  backface-visibility: hidden;
 
-  &.visible {
-    opacity: 1;
-    transition: all 0.4s ease-in-out;
-    display: block;
-    z-index: 200;
+  @include breakpoint(lg) {
+    transform: translateX(-100%);
+    z-index: -1;
+    transition: transform 0s 2s, z-index 0s 2s;
+  }
+
+  @include breakpoint(lg) {
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      width: 50%;
+      position: fixed;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+    }
+
+    &:before {
+      background: #fff;
+      left: 0;
+      transform: translateY(100%);
+      z-index: 2;
+    }
+
+    &:after {
+      right: 0;
+      background-color: $grey-dark;
+      transform: translateY(-100%);
+      z-index: 0;
+    }
+
+    &.visible {
+      transition: all 0.5s ease-in-out;
+      z-index: 500;
+      transform: translateY(0);
+      transition: none;
+
+      &:before,
+      &:after {
+        transform: none;
+        transition: transform 0.5s ease-in-out;
+      }
+    }
+  }
+}
+
+.contact-inner {
+  width: 1200px;
+  // border: 1px solid #f0f;
+  margin: 0 auto;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(lg) {
+    flex-direction: row;
+
+    .left-col,
+    .right-col {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .contact-wrapper.visible & {
+    .left-col,
+    .right-col {
+      opacity: 1;
+      transition: all 0.8s ease-in-out;
+    }
+
+    .left-col {
+      transition-delay: 0.4s;
+    }
+
+    .right-col {
+      transition-delay: 0.8s;
+    }
   }
 }
 
@@ -238,6 +329,6 @@ export default {
 }
 
 .form-item.focus {
-  border: 1px solid #f0f;
+  // border: 1px solid #f0f;
 }
 </style>
