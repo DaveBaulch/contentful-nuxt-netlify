@@ -14,6 +14,11 @@ export default {
   methods: {
     toggleContact () {
       this.$store.commit('contact/toggleContact')
+      // clear the state values for the form on closing the modal
+      this.$store.commit('contact/formEntered', false)
+      this.$store.commit('contact/formSubmitted', false)
+      this.$store.commit('contact/formSuccess', false)
+      this.$store.commit('contact/formError', false)
     }
   }
 }

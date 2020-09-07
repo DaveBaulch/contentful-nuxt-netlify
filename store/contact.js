@@ -2,28 +2,33 @@
 
 export const state = () => ({
   contactActive: false,
+  formEntered: false,
   formSubmitted: false,
   formSuccess: false,
   formError: false
+  // nameValid: false,
+  // emailValid: false,
+  // messageValid: false
 })
 
 export const getters = {
-  // Here we will create a getter
 }
 
 export const mutations = {
-  // Here we will create mutations
   toggleContact (state) {
     state.contactActive = !state.contactActive
   },
-  formSubmitted (state) {
-    state.formSubmitted = true
+  formEntered (state, status) {
+    state.formEntered = status
   },
-  formSuccess (state) {
-    state.formSuccess = true
+  formSubmitted (state, status) {
+    state.formSubmitted = status
   },
-  formError (state) {
-    state.formError = true
+  formSuccess (state, status) {
+    state.formSuccess = status
+  },
+  formError (state, status) {
+    state.formError = status
   }
 }
 
