@@ -65,7 +65,14 @@ export default {
           ...this.form
         }),
         axiosConfig
-      )
+      ).then(function (response) {
+        // handle success
+        console.log('success' + response)
+      })
+        .catch(function (response) {
+          // handle error
+          console.log('fail' + response)
+        })
     }
   }
 }
