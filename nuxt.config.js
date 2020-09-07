@@ -48,7 +48,8 @@ export default {
     {
       src: '~/plugins/v-waypoint.js',
       mode: 'client'
-    }
+    },
+    '~/plugins/vee-validate.js'
   ],
   /*
   ** Auto import components
@@ -90,5 +91,6 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    transpile: ['vee-validate/dist/rules']
   }
 }

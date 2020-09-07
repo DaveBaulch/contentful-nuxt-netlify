@@ -9,16 +9,17 @@
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         class="contact-form"
+        @submit.prevent="handleSubmit"
       >
         <input type="hidden" name="form-name" value="contact">
         <label for="name">Name</label>
-        <input id="name" type="text" name="name" placeholder="Your name..">
+        <input id="name" v-model="form.name" type="text" name="name" placeholder="Your name..">
 
         <label for="email">Email address</label>
-        <input id="email" type="text" name="email" placeholder="Your email..">
+        <input id="email" v-model="form.email" type="text" name="email" placeholder="Your email..">
 
         <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Write something.." />
+        <textarea id="message" v-model="form.message" name="message" placeholder="Write something.." />
 
         <input type="submit" value="Submit">
       </form>
@@ -27,10 +28,44 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
+  name: 'ContactForm',
+  data () {
+    return {
+      form: {
+        name: '',
+        email: '',
+        message: ''
+      }
+    }
+  },
   computed: {
     contactActive () {
       return this.$store.state.contact.contactActive
+    }
+  },
+  methods: {
+    encode (data) {
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join('&')
+    },
+    handleSubmit () {
+      const axiosConfig = {
+        header: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      }
+      axios.post(
+        '/',
+        this.encode({
+          'form-name': 'contact',
+          ...this.form
+        }),
+        axiosConfig
+      )
     }
   }
 }
