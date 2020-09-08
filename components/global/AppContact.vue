@@ -211,6 +211,7 @@ export default {
     z-index: -1;
     transition: transform 0s 2s, z-index 0s 2s;
     overflow-y: scroll;
+    opacity: 1;
 
     &:before,
     &:after {

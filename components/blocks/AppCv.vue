@@ -67,7 +67,7 @@ export default {
 <style lang="scss" scoped>
 .cv {
   width: auto;
-  max-width: 600px;
+  // max-width: 600px;
   margin: 0 auto;
 }
 
