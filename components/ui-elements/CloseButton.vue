@@ -6,8 +6,8 @@
     class="button close-button"
     @click="toggleContact"
   >
-    <span class="sr-only">
-      Close</span>
+    Close
+    </span>
   </button>
 </template>
 

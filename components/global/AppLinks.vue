@@ -6,7 +6,7 @@
       >
         <li class="nav__item">
           <nuxt-link to="/" class="nav__link">
-            Homepage
+            Home
           </nuxt-link>
         </li>
         <li class="nav__item">

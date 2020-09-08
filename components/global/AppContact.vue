@@ -192,15 +192,17 @@ export default {
   overflow-x: hidden;
   overflow-y: hidden;
   color: #333;
-  background-color: $grey-dark;
+  background: rgba(10, 50, 70, 100);
   backface-visibility: hidden;
   transform: translateY(-100%);
   z-index: 10000;
   transition: all 0.5s ease-in-out;
+  opacity: 0;
 
   &.visible {
     transition: all 0.5s ease-in-out;
     transform: translateY(0);
+    opacity: 0.98;
   }
 
   @include breakpoint(md) {
@@ -224,7 +226,7 @@ export default {
     }
 
     &:before {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.98);
       left: 0;
       transform: translateY(100%);
       z-index: 2;
@@ -232,9 +234,9 @@ export default {
 
     &:after {
       right: 0;
-      background-color: $grey-dark;
       transform: translateY(-100%);
       z-index: 0;
+      background: rgba(10, 50, 70, 0.98);
     }
 
     &.visible {
@@ -254,7 +256,6 @@ export default {
 
 .contact-inner {
   width: 1200px;
-  // border: 1px solid #f0f;
   margin: 0 auto;
   z-index: 1000;
   display: flex;

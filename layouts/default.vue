@@ -1,14 +1,19 @@
 <template>
   <div class="app-container">
-    <AppHeader />
-    <AppSidebar />
-    <div class="app-content-wrapper">
+    <div class="app-container__inner">
+      <AppHeader
+        image-src="bg.jpg"
+      />
+      <AppSidebar />
       <div class="app-content">
-        <Nuxt />
+        <div class="app-content__inner">
+          <Nuxt />
+        </div>
       </div>
+
       <AppContact />
-      <AppFooter />
     </div>
+    <AppFooter />
   </div>
 </template>
 
@@ -60,20 +65,14 @@ html {
 }
 
 .app-container {
-  height: 100%;
+  min-height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-.app-content-wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;;
-}
-
-.app-content {
-  width: 100%;
+.app-container__inner {
   flex: 1;
 }
+
 </style>

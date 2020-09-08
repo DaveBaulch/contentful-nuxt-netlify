@@ -19,6 +19,12 @@ export default {}
   color: $white;
   text-align: center;
   flex-shrink: 0;
+  position: fixed;
+  bottom: 0;
+
+  @include breakpoint(md) {
+    position: relative;
+  }
 }
 
 .footer {
