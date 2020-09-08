@@ -1,13 +1,37 @@
 <template>
-  <div class="page-wrapper">
-    <div class="page-inner">
-      <AppHeader />
+  <div class="app-container">
+    <!-- <div class="app-inner"> -->
+    <AppHeader />
+    <AppSidebar />
+    <div class="app-content">
       <Nuxt />
     </div>
+    <!-- </div> -->
+
     <AppContact />
     <AppFooter />
   </div>
 </template>
+
+<script>
+
+export default {
+  computed: {
+    isSidebar () {
+      return this.$store.getters['nav/toggleSidebar']
+    }
+  },
+
+  watch: {
+    '$route' () {
+      if (process.client && this.isSidebar && window.innerWidth < 768) {
+        this.$store.dispatch('nav/toggleSidebar')
+      }
+    }
+  }
+}
+
+</script>
 
 <style>
 html {
@@ -36,7 +60,21 @@ html {
   margin: 0;
 }
 
-.button--green {
+.app-container{
+  height: 100%;
+  position: relative;
+  display: grid;
+  grid-template: auto 1fr auto / 1fr;
+}
+.app-content{
+  /* min-height: 100vh; */
+  /* padding: 24px; */
+  /* display: grid;
+  align-items: center;
+  justify-items: center; */
+}
+
+/* .button--green {
   display: inline-block;
   border-radius: 4px;
   border: 1px solid #3b8070;
@@ -63,5 +101,5 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
-}
+} */
 </style>

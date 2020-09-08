@@ -1,13 +1,13 @@
 <template>
   <ul class="social-links">
     <li class="social-links__item">
-      <social-icon text="facebook" url="http://www.facebook.com" class="social-links__link social-icon social-icon__facebook" />
+      <SocialIcon text="facebook" url="http://www.facebook.com" class="social-links__link social-icon social-icon__facebook" />
     </li>
     <li class="social-links__item">
-      <social-icon text="linkedin" url="http://www.linkedin.com" class="social-links__link social-icon social-icon__linkedin" />
+      <SocialIcon text="linkedin" url="http://www.linkedin.com" class="social-links__link social-icon social-icon__linkedin" />
     </li>
     <li class="social-links__item">
-      <social-icon text="twitter" url="http://www.twitter.com" class="social-links__link social-icon social-icon__twitter" />
+      <SocialIcon text="twitter" url="http://www.twitter.com" class="social-links__link social-icon social-icon__twitter" />
     </li>
   </ul>
 </template>

@@ -1,5 +1,6 @@
 // Nuxt.js lets you have a store directory with every file corresponding to a module.
 
+// state
 export const state = () => ({
   contactActive: false,
   formEntered: false,
@@ -8,27 +9,49 @@ export const state = () => ({
   formError: false
 })
 
-export const getters = {
-}
+// actions
+export const actions = {
+  toggleContact ({ commit }) {
+    commit('TOGGLE_CONTACT')
+  },
 
-export const mutations = {
-  toggleContact (state) {
-    state.contactActive = !state.contactActive
+  formEntered ({ commit }, status) {
+    commit('FORM_ENTERED', status)
   },
-  formEntered (state, status) {
-    state.formEntered = status
+
+  formSubmitted ({ commit }, status) {
+    commit('FORM_SUBMITTED', status)
   },
-  formSubmitted (state, status) {
-    state.formSubmitted = status
+
+  formSuccess ({ commit }, status) {
+    commit('FORM_SUCCESS', status)
   },
-  formSuccess (state, status) {
-    state.formSuccess = status
-  },
-  formError (state, status) {
-    state.formError = status
+
+  formError ({ commit }, status) {
+    commit('FORM_ERROR', status)
   }
 }
 
-export const actions = {
-  // Here we will create action
+// mutations
+export const mutations = {
+
+  TOGGLE_CONTACT (state) {
+    state.contactActive = !state.contactActive
+  },
+
+  FORM_ENTERED (state, status) {
+    state.formEntered = status
+  },
+
+  FORM_SUBMITTED (state, status) {
+    state.formSubmitted = status
+  },
+
+  FORM_SUCCESS (state, status) {
+    state.formSuccess = status
+  },
+
+  FORM_ERROR (state, status) {
+    state.formError = status
+  }
 }

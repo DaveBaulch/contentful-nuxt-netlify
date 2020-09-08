@@ -1,10 +1,7 @@
 <template>
   <div class="footer-wrapper">
     <footer class="footer">
-      <!-- <p class="copyright">
-        &copy; Dave Baulch 2020
-      </p> -->
-      <social-links />
+      <SocialLinks />
     </footer>
   </div>
 </template>
@@ -16,7 +13,6 @@ export default {}
 <style lang="scss" scoped>
 .footer-wrapper {
   width: 100%;
-  // padding: 20px;
   background-color: $black;
   color: $white;
   text-align: center;

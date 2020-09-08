@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     toggleContact () {
-      this.$store.commit('contact/toggleContact')
+      this.$store.dispatch('contact/toggleContact')
       this.$nextTick(() => document.getElementById('close-button').focus())
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div :class="{ visible: contactActive }" class="contact-wrapper">
-    <close-button />
+    <CloseButton />
 
     <div class="contact-inner">
       <div class="left-col">
@@ -134,7 +134,7 @@ export default {
         .join('&')
     },
     checkForm () {
-      this.$store.commit('contact/formEntered', true)
+      this.$store.dispatch('contact/formEntered', true)
 
       if (this.formEntered && this.nameValid && this.emailValid && this.messageValid) {
         this.handleSubmit()
@@ -142,7 +142,7 @@ export default {
     },
     handleSubmit () {
       const self = this
-      this.$store.commit('contact/formSubmitted', true)
+      this.$store.dispatch('contact/formSubmitted', true)
 
       const axiosConfig = {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
@@ -157,13 +157,13 @@ export default {
       ).then(function (response) {
         // handle success
         console.log('success' + response)
-        self.$store.commit('contact/formSuccess', true)
+        self.$store.dispatch('contact/formSuccess', true)
         self.clearForm()
       })
         .catch(function (response) {
         // handle error
           console.log('fail' + response)
-          self.$store.commit('contact/formError', true)
+          self.$store.dispatch('contact/formError', true)
           self.clearForm()
         })
     },
@@ -193,11 +193,12 @@ export default {
   overflow-y: scroll;
   color: #333;
   backface-visibility: hidden;
+  transform: translateX(-100%);
+  z-index: -1;
+  transition: transform 0s 2s, z-index 0s 2s;
 
   @include breakpoint(lg) {
     transform: translateX(-100%);
-    z-index: -1;
-    transition: transform 0s 2s, z-index 0s 2s;
   }
 
   @include breakpoint(lg) {

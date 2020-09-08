@@ -1,27 +1,30 @@
 import client from '~/plugins/contentful'
 
+// state
 export const state = () => ({
   currentPost: {},
   isLoading: true
 })
 
+// actions
 export const actions = {
   async getPostBySlug ({ commit }, slug) {
-    commit('setLoading', true)
+    commit('SET_LOADING', true)
     const response = await client.getEntries({
       content_type: 'blogPost',
       'fields.slug': slug
     })
-    commit('setCurrentPost', response.items[0])
-    commit('setLoading', false)
+    commit('SET_CURRENT_POST', response.items[0])
+    commit('SET_LOADING', false)
   }
 }
 
+// mutations
 export const mutations = {
-  setCurrentPost (state, payload) {
+  SET_CURRENT_POST (state, payload) {
     state.currentPost = payload
   },
-  setLoading (state, payload) {
+  SET_LOADING (state, payload) {
     state.isLoading = payload
   }
 }

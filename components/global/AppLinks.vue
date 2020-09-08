@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="nav-wrapper" :class="{ visible: menuActive }">
+    <div class="nav-wrapper">
       <ul
         class="nav"
       >
@@ -23,16 +23,6 @@
 
       <contact-button text="Contact Us" />
     </div>
-
-    <button
-      type="button"
-      class="button nav__button"
-      :class="buttonClass"
-      @click="toggleMenu"
-    >
-      <span class="sr-only">
-        {{ buttonText }}</span>
-    </button>
   </div>
 </template>
 
@@ -65,24 +55,9 @@ export default {
 .nav-wrapper {
   width: 100%;
   height: 100%;
-  background-color: $red;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
   text-align: center;
   padding-top: 50px;
   font-size: 3rem;
-  display: none;
-
-  &.visible {
-    opacity: 1;
-    transition: all 0.4s ease-in-out;
-    display: block;
-    z-index: 100;
-  }
 
   @include breakpoint(lg) {
     width: auto;
@@ -94,10 +69,6 @@ export default {
     background-color: transparent;
     font-size: 1.6rem;
     padding-top: 0;
-
-    &.visible {
-      display: flex;
-    }
   }
 }
 
@@ -133,8 +104,10 @@ a.nav__link {
   }
 
   @include breakpoint(lg) {
+    color: $white;
+
     &:hover {
-      color: grey-dark;
+      color: $white;
       text-decoration: underline;
     }
   }

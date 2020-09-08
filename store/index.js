@@ -1,9 +1,11 @@
 import client from '~/plugins/contentful'
 
+// state
 export const state = () => ({
   posts: null
 })
 
+// actions
 export const actions = {
   async getPosts ({ commit }) {
     try {
@@ -17,7 +19,7 @@ export const actions = {
         // commit('updatePosts', response.items)
         // commit('updatePosts', response.items[0].fields.blogs)
         // console.log(response.items[0].fields.blogs)
-        commit('updatePosts', response.items[0].fields)
+        commit('UPDATE_POSTS', response.items[0].fields)
         console.log(response.items[0].fields)
       }
     } catch (err) {
@@ -26,8 +28,9 @@ export const actions = {
   }
 }
 
+// mutations
 export const mutations = {
-  updatePosts: (state, posts) => {
+  UPDATE_POSTS: (state, posts) => {
     state.posts = posts
   }
 }

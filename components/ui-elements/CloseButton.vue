@@ -15,12 +15,12 @@
 export default {
   methods: {
     toggleContact () {
-      this.$store.commit('contact/toggleContact')
+      this.$store.dispatch('contact/toggleContact')
       // clear the state values for the form on closing the modal
-      this.$store.commit('contact/formEntered', false)
-      this.$store.commit('contact/formSubmitted', false)
-      this.$store.commit('contact/formSuccess', false)
-      this.$store.commit('contact/formError', false)
+      this.$store.dispatch('contact/formEntered', false)
+      this.$store.dispatch('contact/formSubmitted', false)
+      this.$store.dispatch('contact/formSuccess', false)
+      this.$store.dispatch('contact/formError', false)
       this.$nextTick(() => document.getElementById('contact-button').focus())
     }
   }
