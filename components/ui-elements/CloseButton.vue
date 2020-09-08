@@ -38,7 +38,7 @@ export default {
   position: absolute;
   right: 0;
   top: 10px;
-  z-index: 200;
+  z-index: 2000;
   background: transparent url('~assets/layout/icon-mobile-menu-close.svg') no-repeat center center;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;

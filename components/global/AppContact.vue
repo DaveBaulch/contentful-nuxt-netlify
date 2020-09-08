@@ -192,16 +192,23 @@ export default {
   overflow-x: hidden;
   overflow-y: scroll;
   color: #333;
+  background-color: $grey-dark;
   backface-visibility: hidden;
-  transform: translateX(-100%);
-  z-index: -1;
-  transition: transform 0s 2s, z-index 0s 2s;
+  transform: translateY(-100%);
+  z-index: 10000;
+  transition: all 0.5s ease-in-out;
 
-  @include breakpoint(lg) {
-    transform: translateX(-100%);
+  &.visible {
+    transition: all 0.5s ease-in-out;
+    transform: translateY(0);
   }
 
   @include breakpoint(lg) {
+    background-color: transparent;
+    transform: translateX(-100%);
+    z-index: -1;
+    transition: transform 0s 2s, z-index 0s 2s;
+
     &:before,
     &:after {
       content: '';
