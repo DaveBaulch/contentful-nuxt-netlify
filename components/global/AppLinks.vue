@@ -5,48 +5,62 @@
         class="nav"
       >
         <li class="nav__item">
-          <nuxt-link to="/about" class="nav__link" @click.native="toggleMenu">
+          <nuxt-link to="/" class="nav__link">
+            Homepage
+          </nuxt-link>
+        </li>
+        <li class="nav__item">
+          <nuxt-link to="/about" class="nav__link">
             About
           </nuxt-link>
         </li>
         <li class="nav__item">
-          <nuxt-link to="/cv" class="nav__link" @click.native="toggleMenu">
+          <nuxt-link to="/cv" class="nav__link">
             CV
           </nuxt-link>
         </li>
         <li class="nav__item">
-          <nuxt-link to="/blog" class="nav__link" @click.native="toggleMenu">
+          <nuxt-link to="/blog" class="nav__link">
             Blog
           </nuxt-link>
         </li>
       </ul>
 
-      <contact-button text="Contact Us" />
+      <contact-button text="Get in touch" />
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      menuActive: false
-    }
-  },
-  computed: {
-    buttonText () {
-      return !this.menuActive ? 'Open' : 'Close'
-    },
-    buttonClass () {
-      return !this.menuActive ? '' : 'is-active'
-    }
-  },
-  methods: {
-    toggleMenu (event) {
-      this.menuActive = !this.menuActive
-    }
-  }
-}
+// export default {
+//   data () {
+//     return {
+//       menuActive: false
+//     }
+//   },
+//   computed: {
+//     buttonText () {
+//       return !this.menuActive ? 'Open' : 'Close'
+//     },
+//     buttonClass () {
+//       return !this.menuActive ? '' : 'is-active'
+//     }
+//   },
+//   methods: {
+//     toggleMenu (event) {
+//       this.menuActive = !this.menuActive
+//     }
+//   }
+// }
+// </script>
+
+// export default {
+//   methods: {
+//     toggleSidebar (event) {
+//       this.$store.dispatch('nav/toggleSidebar')
+//     }
+//   }
+// }
 </script>
 
 <style lang="scss" scoped>
@@ -59,7 +73,7 @@ export default {
   padding-top: 50px;
   font-size: 3rem;
 
-  @include breakpoint(lg) {
+  @include breakpoint(md) {
     width: auto;
     height: auto;
     display: flex;
@@ -73,9 +87,9 @@ export default {
 }
 
 .nav {
-  @include breakpoint(lg) {
+  @include breakpoint(md) {
     display: flex;
-    flex-direction : row;
+    flex-direction: row;
   }
 }
 
@@ -83,7 +97,7 @@ export default {
   margin: 4rem 1rem;
   list-style: none;
 
-  @include breakpoint(lg) {
+  @include breakpoint(md) {
     margin: 2rem 1rem;
   }
 }
@@ -103,7 +117,7 @@ a.nav__link {
     text-decoration: underline;
   }
 
-  @include breakpoint(lg) {
+  @include breakpoint(md) {
     color: $white;
 
     &:hover {
@@ -130,7 +144,7 @@ a.nav__link {
     background: transparent url('~assets/layout/icon-mobile-menu-close.svg') no-repeat center center;
   }
 
-  @include breakpoint(lg) {
+  @include breakpoint(md) {
     display: none;
   }
 }

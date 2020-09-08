@@ -1,17 +1,19 @@
 <template>
-  <header class="header">
-    <AppLogo alt="Daves homepage" />
+  <div class="header-wrapper">
+    <header class="header container">
+      <!-- <AppLogo alt="Homepage" /> -->
 
-    <div class="drawer-toggle" role="button" @click="$store.dispatch('nav/toggleSidebar')">
-      <div class="bar" />
-      <div class="bar" />
-      <div class="bar" />
-    </div>
+      <div class="drawer-toggle" role="button" @click="$store.dispatch('nav/toggleSidebar')">
+        <div class="bar" />
+        <div class="bar" />
+        <div class="bar" />
+      </div>
 
-    <div class="app-links">
-      <AppLinks />
-    </div>
-  </header>
+      <div class="app-links">
+        <AppLinks />
+      </div>
+    </header>
+  </div>
 </template>
 
 <script>
@@ -19,55 +21,51 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-header {
-  display: grid;
-  grid-template: 60px / auto 1fr;
-  align-items: center;
+@import '~assets/sass/utilities/_mixins.scss';
+
+.header-wrapper {
+  width: 100%;
+  height: auto;
   background-color: #333;
 }
 
-.app-links{
-  justify-self: end;
+.header {
+  display: flex;
+  justify-content: flex-end;
+
+  @include breakpoint(md) {
+    max-width: $breakpoint-xl;
+    margin: 0 auto;
+  }
+}
+
+.drawer-toggle {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 44px;
+  width: 44px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid $white;
+
+  @include breakpoint(md) {
+    display: none;
+  }
 }
 
 .drawer-toggle .bar {
-  width: 90%;
+  width: 100%;
   height: 2px;
   background-color: white;
 }
 
-.drawer-toggle {
-  display: flex;
-  justify-self: end;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 50%;
-  width: 35px;
-  padding-right: 16px;
-  cursor: pointer;
-}
+.app-links {
+  display: none;
 
-@media (max-width: 767px) {
-  header{
-    padding: 0 16px;
-  }
-  header:nth-child{
-    justify-self: end !important;
-  }
-  .app-links {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) {
-  header{
-    padding: 0 64px;
-  }
-  .app-links {
+  @include breakpoint(md) {
     display: block;
-  }
-  .drawer-toggle {
-    display: none;
   }
 }
 </style>

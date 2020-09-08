@@ -1,15 +1,14 @@
 <template>
   <div class="app-container">
-    <!-- <div class="app-inner"> -->
     <AppHeader />
     <AppSidebar />
-    <div class="app-content">
-      <Nuxt />
+    <div class="app-content-wrapper">
+      <div class="app-content">
+        <Nuxt />
+      </div>
+      <AppContact />
+      <AppFooter />
     </div>
-    <!-- </div> -->
-
-    <AppContact />
-    <AppFooter />
   </div>
 </template>
 
@@ -18,7 +17,7 @@
 export default {
   computed: {
     isSidebar () {
-      return this.$store.getters['nav/toggleSidebar']
+      return this.$store.getters['nav/showSidebar']
     }
   },
 
@@ -60,46 +59,23 @@ html {
   margin: 0;
 }
 
-.app-container{
+.app-container {
   height: 100%;
   position: relative;
-  display: grid;
-  grid-template: auto 1fr auto / 1fr;
-}
-.app-content{
-  /* min-height: 100vh; */
-  /* padding: 24px; */
   /* display: grid;
-  align-items: center;
-  justify-items: center; */
+  grid-template: auto 1fr auto / 1fr; */
+  display: flex;
+  flex-direction: column;
 }
 
-/* .button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.app-content-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.app-content {
+  width: 100%;
+  flex: 1;
 }
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-} */
 </style>

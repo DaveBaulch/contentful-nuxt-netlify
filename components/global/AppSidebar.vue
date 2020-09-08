@@ -37,10 +37,10 @@ export default {
 @import '~assets/sass/utilities/_mixins.scss';
 
   .sidebar-wrapper {
-    height: 100%;
-    width: 100%;
+    // height: 100%;
+    // width: 100%;
 
-    @include breakpoint(lg) {
+    @include breakpoint(md) {
       display: none;
     }
   }

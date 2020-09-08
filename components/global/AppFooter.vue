@@ -11,6 +11,8 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/sass/utilities/_mixins.scss';
+
 .footer-wrapper {
   width: 100%;
   background-color: $black;

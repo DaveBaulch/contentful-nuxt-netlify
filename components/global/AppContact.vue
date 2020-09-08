@@ -190,7 +190,7 @@ export default {
   left: 0;
   overflow: auto;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: hidden;
   color: #333;
   background-color: $grey-dark;
   backface-visibility: hidden;
@@ -203,11 +203,12 @@ export default {
     transform: translateY(0);
   }
 
-  @include breakpoint(lg) {
+  @include breakpoint(md) {
     background-color: transparent;
     transform: translateX(-100%);
     z-index: -1;
     transition: transform 0s 2s, z-index 0s 2s;
+    overflow-y: scroll;
 
     &:before,
     &:after {
@@ -259,7 +260,7 @@ export default {
   display: flex;
   flex-direction: column;
 
-  @include breakpoint(lg) {
+  @include breakpoint(md) {
     flex-direction: row;
 
     .left-col,
