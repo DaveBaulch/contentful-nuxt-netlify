@@ -15,12 +15,12 @@ export default {}
 
 .footer-wrapper {
   width: 100%;
-  background-color: $black;
   color: $white;
   text-align: center;
   flex-shrink: 0;
   position: fixed;
   bottom: 0;
+  background: rgba(10, 50, 70, 0.9);
 
   @include breakpoint(md) {
     position: relative;

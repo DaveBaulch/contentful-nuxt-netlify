@@ -2,8 +2,9 @@
   <div class="header-wrapper" :class="currentPage">
     <transition-group name="bg" tag="div" class="bg-img">
       <div v-if="currentPage === 'index'" key="img1" class="header-img header-img--1" />
-      <div v-else-if="currentPage === 'cv'" key="img2" class="header-img header-img--2" />
-      <div v-else key="img3" class="header-img header-img--3" />
+      <div v-else-if="currentPage === 'about'" key="img2" class="header-img header-img--2" />
+      <div v-else-if="currentPage === 'cv'" key="img3" class="header-img header-img--3" />
+      <div v-else key="img4" class="header-img header-img--4" />
     </transition-group>
 
     <div class="header">
@@ -55,16 +56,16 @@ export default {
   height: 200px;
 
   @include breakpoint(md) {
-    height: 400px;
+    height: 300px;
   }
 
-  &.about,
-  &.cv,
-  &.blog {
-    @include breakpoint(md) {
-      height: 300px;
-    }
-  }
+  // &.about,
+  // &.cv,
+  // &.blog {
+  //   @include breakpoint(md) {
+  //     height: 300px;
+  //   }
+  // }
 }
 
 .bg-img {
@@ -76,15 +77,15 @@ export default {
   z-index: -1;
 
   @include breakpoint(md) {
-    height: 400px;
+    height: 300px;
 
-    .header-wrapper.about &,
-    .header-wrapper.cv &,
-    .header-wrapper.blog & {
-      @include breakpoint(md) {
-        height: 300px;
-      }
-    }
+    // .header-wrapper.about &,
+    // .header-wrapper.cv &,
+    // .header-wrapper.blog & {
+    //   @include breakpoint(md) {
+    //     height: 300px;
+    //   }
+    // }
   }
 }
 
@@ -92,30 +93,35 @@ export default {
   background-size: cover;
   position: absolute;
   width: 100vw;
-  height: 400px;
+  height: 300px;
   overflow-y: hidden;
 
-  .header-wrapper.about &,
-  .header-wrapper.cv &,
-  .header-wrapper.blog & {
-    @include breakpoint(md) {
-      height: 300px;
-    }
-  }
+  // .header-wrapper.about &,
+  // .header-wrapper.cv &,
+  // .header-wrapper.blog & {
+  //   @include breakpoint(md) {
+  //     height: 300px;
+  //   }
+  // }
 }
 
 .header-img--1 {
-  background: url('~assets/layout/hero-bg.jpg') center center;
+  background: url('~assets/layout/bg.jpg') center center;
   background-size: cover;
 }
 
 .header-img--2 {
-  background: url('~assets/layout/bg.jpg') center center;
+  background: url('~assets/layout/bg2.jpg') center center;
   background-size: cover;
 }
 
 .header-img--3 {
-  background: url('~assets/layout/bg.jpg') center center;
+  background: url('~assets/layout/bg3.jpg') center center;
+  background-size: cover;
+}
+
+.header-img--4 {
+  background: url('~assets/layout/bg4.jpg') center center;
   background-size: cover;
 }
 
@@ -132,7 +138,7 @@ export default {
 
 .header {
   width: 100%;
-  background: rgba(10, 50, 70, 0.5);
+  background: rgba(10, 50, 70, 0.75);
 }
 
 .header__inner {
