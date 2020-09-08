@@ -22,7 +22,6 @@ body {
 }
 
 main {
-  // max-width: $breakpoint-xl;
   margin: 0 auto;
   padding: 0 0 4rem 0;
 
@@ -32,28 +31,4 @@ main {
   }
 }
 
-article {
-  // padding: $padding 6.8rem;
-  // min-height: $page-height - $header-height;
-
-  // @if $vertical-center-content {
-  //   @include flexVerticalCenter;
-
-  //   > * {
-  //     flex-grow: 1;
-  //   }
-  // }
-
-  // io videos
-  .modal-shallow & {
-    min-height: 0;
-  }
-}
-
-.modal-big-image {
-  position: absolute;
-  bottom: 0;
-  left: $padding;
-  z-index: 1000;
-}
 

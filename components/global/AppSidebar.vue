@@ -2,19 +2,17 @@
   <div class="sidebar-wrapper">
     <div v-if="showSidebar" class="sidebar-background" @click="toggleSidebar" />
 
-    <transition name="slide-side">
-      <div v-if="showSidebar" class="sidebar">
-        <button
-          type="button"
-          class="button"
-          @click="toggleSidebar"
-        >
-          Close
-        </button>
+    <div class="sidebar" :class="{active: showSidebar}">
+      <button
+        type="button"
+        class="button"
+        @click="toggleSidebar"
+      >
+        Close
+      </button>
 
-        <AppLinks />
-      </div>
-    </transition>
+      <AppLinks />
+    </div>
   </div>
 </template>
 
@@ -37,8 +35,8 @@ export default {
 @import '~assets/sass/utilities/_mixins.scss';
 
   .sidebar-wrapper {
-    // height: 100%;
-    // width: 100%;
+    width: 100%;
+    height: 100%;
 
     @include breakpoint(md) {
       display: none;
@@ -55,6 +53,12 @@ export default {
     left: 0;
     box-sizing: border-box;
     padding: 30px;
+    transform: translateX(-100%);
+    transition: all 0.5s ease-out;
+
+    &.active {
+      transform: translateX(0);
+    }
   }
 
   .sidebar-background {
@@ -65,15 +69,5 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-  }
-
-  .slide-side-enter-active,
-  .slide-side-leave-active {
-    transition: all 0.5s ease-out;
-  }
-
-  .slide-side-enter,
-  .slide-side-leave-to {
-    transform: translateX(-100%);
   }
 </style>

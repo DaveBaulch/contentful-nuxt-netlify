@@ -62,8 +62,6 @@ html {
 .app-container {
   height: 100%;
   position: relative;
-  /* display: grid;
-  grid-template: auto 1fr auto / 1fr; */
   display: flex;
   flex-direction: column;
 }
