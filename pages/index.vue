@@ -8,7 +8,18 @@
 </template>
 
 <style lang="scss" scoped>
+@import '~assets/sass/utilities/_mixins.scss';
+
   main {
-    padding-top: 100px;
+    padding-top: 50px;
+
+    @include breakpoint(sm) {
+      padding-top: 60px;
+    }
+
+    @include breakpoint(md) {
+      padding-top: 100px;
+    }
   }
+
 </style>

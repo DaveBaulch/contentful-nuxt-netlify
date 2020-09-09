@@ -76,10 +76,13 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
-  background: linear-gradient(to left, rgba(10, 50, 70, 0.1) 10%, rgba(10, 50, 70, 0.4) 90%);
-  display: none;
+  background: linear-gradient(to left, rgba(10, 50, 70, 0.1) 80%, rgba(10, 50, 70, 0.4) 95%);
+  display: block;
 
-  .about & {
+  .about &,
+  .cv &,
+  .blog & {
+    background: linear-gradient(to left, rgba(10, 50, 70, 0.1) 10%, rgba(10, 50, 70, 0.4) 90%);
     display: block;
   }
 

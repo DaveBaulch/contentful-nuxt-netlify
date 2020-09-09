@@ -18,13 +18,14 @@ export default {}
   color: $white;
   text-align: center;
   flex-shrink: 0;
-  position: fixed;
+  // position: fixed;
+  position: relative;
   bottom: 0;
   background: rgba(10, 50, 70, 0.9);
 
-  @include breakpoint(md) {
-    position: relative;
-  }
+  // @include breakpoint(md) {
+  //   position: relative;
+  // }
 }
 
 .footer {
