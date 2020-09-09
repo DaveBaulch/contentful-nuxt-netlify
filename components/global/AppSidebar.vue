@@ -7,6 +7,7 @@
 
       <div class="sidebar-inner">
         <AppLinks />
+        <OpenContactButton text="Contact me!" />
       </div>
     </div>
   </div>
@@ -17,6 +18,11 @@ export default {
   computed: {
     showSidebar () {
       return this.$store.getters['nav/showSidebar']
+    }
+  },
+  methods: {
+    toggleSidebar () {
+      this.$store.dispatch('nav/toggleSidebar')
     }
   }
 }
@@ -35,16 +41,21 @@ export default {
 
   .sidebar {
     height: 100%;
-    width: 90%;
+    width: 100%;
     z-index: 10000;
     position: fixed;
     top: 0;
     left: 0;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 20px;
     transform: translateX(-100%);
     transition: all 0.5s ease-out;
     background: rgba(10, 50, 70, 0.5);
+
+    @include breakpoint(sm) {
+      width: 90%;
+      padding: 25px;
+    }
 
     &.active {
       transform: translateX(0);
@@ -69,6 +80,12 @@ export default {
     opacity: 0;
     transition: all 0.2s ease-in-out;
     border-radius: 1px;
+
+    button {
+      margin: 0 auto;
+      display: block;
+      background-color: rgba(217, 74, 25, 0.9);
+    }
   }
 
   .sidebar.active .sidebar-inner {

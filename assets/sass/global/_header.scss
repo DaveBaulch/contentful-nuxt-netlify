@@ -1,7 +1,11 @@
 .header-wrapper {
   width: 100%;
-  padding: 0 30px;
+  padding: 0 25px;
   background-color: $white;
+
+  @include breakpoint(md) {
+    padding: 0 30px;
+  }
 }
 
 .header {

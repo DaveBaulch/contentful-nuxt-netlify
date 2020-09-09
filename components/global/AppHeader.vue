@@ -7,10 +7,10 @@
       <div v-else key="img4" class="header-img header-img--4" />
     </transition-group>
 
+    <div class="gradient-overlay" />
+
     <div class="header">
       <header class="header__inner container">
-        <!-- <AppLogo alt="Homepage" /> -->
-
         <div class="drawer-toggle" role="button" @click="toggleSidebar">
           <div class="bar" />
           <div class="bar" />
@@ -20,6 +20,8 @@
         <div class="app-links">
           <AppLinks />
         </div>
+
+        <AppNavTransition />
       </header>
     </div>
   </div>
@@ -27,16 +29,6 @@
 
 <script>
 export default {
-  // props: {
-  //   imageSrc: {
-  //     type: String,
-  //     default: null
-  //   },
-  //   height: {
-  //     type: String,
-  //     default: '400'
-  //   }
-  // },
   computed: {
     bgImage () {
       return require('assets/layout/' + this.imageSrc)
@@ -63,14 +55,6 @@ export default {
   @include breakpoint(md) {
     height: 300px;
   }
-
-  // &.about,
-  // &.cv,
-  // &.blog {
-  //   @include breakpoint(md) {
-  //     height: 300px;
-  //   }
-  // }
 }
 
 .bg-img {
@@ -83,14 +67,24 @@ export default {
 
   @include breakpoint(md) {
     height: 300px;
+  }
+}
 
-    // .header-wrapper.about &,
-    // .header-wrapper.cv &,
-    // .header-wrapper.blog & {
-    //   @include breakpoint(md) {
-    //     height: 300px;
-    //   }
-    // }
+.gradient-overlay {
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(to left, rgba(10, 50, 70, 0.1) 10%, rgba(10, 50, 70, 0.4) 90%);
+  display: none;
+
+  .about & {
+    display: block;
+  }
+
+  @include breakpoint(md) {
+    height: 300px;
   }
 }
 
@@ -100,14 +94,6 @@ export default {
   width: 100vw;
   height: 300px;
   overflow-y: hidden;
-
-  // .header-wrapper.about &,
-  // .header-wrapper.cv &,
-  // .header-wrapper.blog & {
-  //   @include breakpoint(md) {
-  //     height: 300px;
-  //   }
-  // }
 }
 
 .header-img--1 {
@@ -144,11 +130,13 @@ export default {
 .header {
   width: 100%;
   background: rgba(10, 50, 70, 0.75);
+  position: relative;
 }
 
 .header__inner {
   display: flex;
   justify-content: flex-end;
+  position: relative;
 
   @include breakpoint(md) {
     max-width: $breakpoint-xl;

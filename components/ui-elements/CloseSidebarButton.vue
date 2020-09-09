@@ -21,6 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/sass/utilities/_mixins.scss';
+
 .close-sidebar-button {
   width: 44px;
   height: 44px;
@@ -28,13 +30,17 @@ export default {
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 30px;
+  right: 20px;
   top: 10px;
   z-index: 2000;
   background: transparent url('~assets/layout/icon-mobile-menu-close-white.svg') no-repeat center center;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
   border: 1px solid $white;
+
+  @include breakpoint(sm) {
+    right: 25px;
+  }
 
   .sidebar.active & {
     opacity: 1;

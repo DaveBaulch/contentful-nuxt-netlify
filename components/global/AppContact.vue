@@ -238,7 +238,11 @@ export default {
   z-index: 10000;
   transition: all 0.5s ease-in-out;
   opacity: 0;
-  padding: 30px;
+  padding: 20px;
+
+  @include breakpoint(sm) {
+    padding: 25px;
+  }
 
   &.visible {
     transition: all 0.5s ease-in-out;
@@ -253,6 +257,7 @@ export default {
     transition: transform 0s 2s, z-index 0s 2s;
     overflow-y: scroll;
     opacity: 1;
+    padding: 30px;
 
     &:before,
     &:after {
@@ -299,11 +304,11 @@ export default {
 
 .contact-inner {
   width: 1200px;
-  margin: 10px auto 0  auto;
+  margin: 30px auto 0  auto;
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 0;
 
   .left-col {
     text-align: center;;
@@ -315,6 +320,7 @@ export default {
 
   @include breakpoint(md) {
     flex-direction: row;
+    padding: 30px;
 
     .left-col,
     .right-col {
@@ -379,10 +385,14 @@ export default {
 }
 
 .contact-form {
-  width: 300px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+
+  @include breakpoint(md) {
+    width: 300px;
+  }
 }
 
 .form-item {
@@ -411,12 +421,16 @@ textarea {
 
 .error {
   position: absolute;
-  top: 75px;
+  top: 65px;
   color: $yellow;
   opacity: 0;
   transition: all 0.5s ease-in-out;
   z-index: -1;
   font-size: 1.8rem;
+
+  @include breakpoint(md) {
+    top: 75px;
+  }
 
   .hasError & {
     opacity: 1;
@@ -486,12 +500,16 @@ label {
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 30px;
+  right: 20px;
   top: 10px;
   z-index: 2000;
   background: transparent url('~assets/layout/icon-mobile-menu-close-white.svg') no-repeat center center;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+
+  @include breakpoint(sm) {
+    right: 25px;
+  }
 
   .contact-wrapper.visible & {
     opacity: 1;

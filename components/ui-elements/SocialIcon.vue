@@ -1,5 +1,5 @@
 <template>
-  <a :href="url" :class="platform">{{ text }}</a>
+  <a :href="url" :class="platform"><span class="social-icon__text">{{ text }}</span></a>
 </template>
 
 <script>
@@ -22,12 +22,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/sass/utilities/_mixins.scss';
+
 .social-icon {
   &:before {
     width: 21px;
     height: 21px;
     content: '';
-    margin-right: 10px;
+  }
+
+  @include breakpoint(sm) {
+    &:before {
+      margin-right: 10px;
+    }
   }
 }
 
@@ -48,6 +55,12 @@ export default {
     width: 20px;
     height: 16px;
     background-image: url('~assets/layout/icon-twitter.svg');
+  }
+}
+
+.social-icon__text {
+  @include between-breakpoints($xs-min, $xs-max) {
+    @include sr-only;
   }
 }
 </style>

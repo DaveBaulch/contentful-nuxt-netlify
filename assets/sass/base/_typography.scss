@@ -14,7 +14,7 @@ h5 {
   padding: 0;
   margin-top: 2rem;
   color: $color-headings;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 h1 {
@@ -74,7 +74,7 @@ a:hover {
 
 a:focus {
   color: $color-link-hover;
-  outline: 2px solid $red;
+  outline: $focus-outline;
 }
 
 // Standard text paragraphs

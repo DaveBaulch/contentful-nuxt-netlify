@@ -23,14 +23,23 @@
           Blog
         </nuxt-link>
       </li>
+      <li class="nav__item nav-item__contact">
+        <button class="nav-item__contact-button" @click="toggleContact">
+          Contact
+        </button>
+      </li>
     </ul>
-
-    <OpenContactButton text="Get in touch" />
   </div>
 </template>
 
 <script>
 export default {
+  methods: {
+    toggleContact () {
+      this.$store.dispatch('contact/toggleContact')
+      this.$nextTick(() => document.getElementById('close-button').focus())
+    }
+  }
 }
 </script>
 
@@ -63,17 +72,52 @@ export default {
 }
 
 .nav__item {
-  margin: 4rem 1rem;
+  margin: 3rem 1rem;
   list-style: none;
 
   @include breakpoint(md) {
-    margin: 2rem 1rem;
+    margin: 0.5rem;
+    display: inline-block;
+  }
+}
+
+.nav-item__contact {
+  display: none;
+
+  @include breakpoint(md) {
+    display: block;
+  }
+}
+
+.nav-item__contact-button {
+  background-color: transparent;
+  border: 0;
+  color: $white;
+  padding: 1rem;
+  line-height: normal;
+  display: inline-block;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:active,
+  &:focus {
+    outline: 0;
+    border: $focus-outline;
   }
 }
 
 a.nav__link {
   color: $white;
   text-decoration: none;
+  padding: 1rem;
+  line-height: normal;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   &:active,
   &:visited {
@@ -81,20 +125,11 @@ a.nav__link {
     text-decoration: none;
   }
 
+  &:hover,
   &:focus {
     color: $white;
     text-decoration: underline;
   }
-
-  // @include breakpoint(md) {
-  //   color: $white;
-
-  //   &:hover {
-  //     color: $white;
-  //     text-decoration: underline;
-  //   }
-  // }
-
 }
 .nav__button {
   width: 44px;

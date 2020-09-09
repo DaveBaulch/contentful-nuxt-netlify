@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     text: {
@@ -28,6 +27,6 @@ export default {
   .open-contact-button {
     color: $white;
     border-color: $white;
-    background-color: transparent;
+    background: linear-gradient(to left, rgba(217, 74, 25, 0.9) 60%, rgba(217, 74, 25, 0.5) 90%);
   }
 </style>

@@ -17,6 +17,8 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+@import '~assets/sass/utilities/_mixins.scss';
+
   .social-links {
     list-style: none;
     display: flex;
@@ -25,7 +27,9 @@ export default {}
   }
 
   .social-links__link {
-    margin: 2rem;
+    width: 44px;
+    height: 44px;
+    margin: 1rem 2rem;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -33,6 +37,11 @@ export default {}
     justify-content: center;
     color: $white;
     text-decoration: none;
+
+    @include breakpoint(sm) {
+      width: auto;
+      padding: 0 1rem;
+    }
 
     &:hover,
     &:focus {
