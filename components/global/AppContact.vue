@@ -200,6 +200,7 @@ export default {
     clearForm () {
       this.form.name = ''
       this.form.email = ''
+      this.form.phone = ''
       this.form.message = ''
     },
     closeContact () {
