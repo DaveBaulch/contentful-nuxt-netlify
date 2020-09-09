@@ -1,66 +1,37 @@
 <template>
-  <div>
-    <div class="nav-wrapper">
-      <ul
-        class="nav"
-      >
-        <li class="nav__item">
-          <nuxt-link to="/" class="nav__link">
-            Home
-          </nuxt-link>
-        </li>
-        <li class="nav__item">
-          <nuxt-link to="/about" class="nav__link">
-            About
-          </nuxt-link>
-        </li>
-        <li class="nav__item">
-          <nuxt-link to="/cv" class="nav__link">
-            CV
-          </nuxt-link>
-        </li>
-        <li class="nav__item">
-          <nuxt-link to="/blog" class="nav__link">
-            Blog
-          </nuxt-link>
-        </li>
-      </ul>
+  <div class="nav-wrapper">
+    <ul
+      class="nav"
+    >
+      <li class="nav__item">
+        <nuxt-link to="/" class="nav__link">
+          Home
+        </nuxt-link>
+      </li>
+      <li class="nav__item">
+        <nuxt-link to="/about" class="nav__link">
+          About
+        </nuxt-link>
+      </li>
+      <li class="nav__item">
+        <nuxt-link to="/cv" class="nav__link">
+          CV
+        </nuxt-link>
+      </li>
+      <li class="nav__item">
+        <nuxt-link to="/blog" class="nav__link">
+          Blog
+        </nuxt-link>
+      </li>
+    </ul>
 
-      <contact-button text="Get in touch" />
-    </div>
+    <OpenContactButton text="Get in touch" />
   </div>
 </template>
 
 <script>
-// export default {
-//   data () {
-//     return {
-//       menuActive: false
-//     }
-//   },
-//   computed: {
-//     buttonText () {
-//       return !this.menuActive ? 'Open' : 'Close'
-//     },
-//     buttonClass () {
-//       return !this.menuActive ? '' : 'is-active'
-//     }
-//   },
-//   methods: {
-//     toggleMenu (event) {
-//       this.menuActive = !this.menuActive
-//     }
-//   }
-// }
-// </script>
-
-// export default {
-//   methods: {
-//     toggleSidebar (event) {
-//       this.$store.dispatch('nav/toggleSidebar')
-//     }
-//   }
-// }
+export default {
+}
 </script>
 
 <style lang="scss" scoped>
@@ -70,8 +41,6 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  padding-top: 50px;
-  font-size: 3rem;
 
   @include breakpoint(md) {
     width: auto;
@@ -103,28 +72,28 @@
 }
 
 a.nav__link {
-  color: grey-dark;
+  color: $white;
   text-decoration: none;
 
   &:active,
   &:visited {
-    color: grey-dark;
+    color: $white;
     text-decoration: none;
   }
 
   &:focus {
-    color: grey-dark;
+    color: $white;
     text-decoration: underline;
   }
 
-  @include breakpoint(md) {
-    color: $white;
+  // @include breakpoint(md) {
+  //   color: $white;
 
-    &:hover {
-      color: $white;
-      text-decoration: underline;
-    }
-  }
+  //   &:hover {
+  //     color: $white;
+  //     text-decoration: underline;
+  //   }
+  // }
 
 }
 .nav__button {
@@ -139,10 +108,6 @@ a.nav__link {
   top: 10px;
   z-index: 200;
   background: transparent url('~assets/layout/icon-mobile-menu-open.svg') no-repeat center center;
-
-  &.is-active {
-    background: transparent url('~assets/layout/icon-mobile-menu-close.svg') no-repeat center center;
-  }
 
   @include breakpoint(md) {
     display: none;

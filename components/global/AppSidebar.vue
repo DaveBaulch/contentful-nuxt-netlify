@@ -3,13 +3,7 @@
     <div v-if="showSidebar" class="sidebar-background" @click="toggleSidebar" />
 
     <div class="sidebar" :class="{active: showSidebar}">
-      <button
-        type="button"
-        class="button"
-        @click="toggleSidebar"
-      >
-        Close
-      </button>
+      <CloseSidebarButton />
 
       <div class="sidebar-inner">
         <AppLinks />
@@ -24,11 +18,6 @@ export default {
     showSidebar () {
       return this.$store.getters['nav/showSidebar']
     }
-  },
-  methods: {
-    toggleSidebar () {
-      this.$store.dispatch('nav/toggleSidebar')
-    }
   }
 }
 </script>
@@ -37,6 +26,8 @@ export default {
 @import '~assets/sass/utilities/_mixins.scss';
 
   .sidebar-wrapper {
+    overflow-y: auto;
+
     @include breakpoint(md) {
       display: none;
     }
@@ -44,7 +35,7 @@ export default {
 
   .sidebar {
     height: 100%;
-    width: 80%;
+    width: 90%;
     z-index: 10000;
     position: fixed;
     top: 0;
@@ -53,16 +44,11 @@ export default {
     padding: 30px;
     transform: translateX(-100%);
     transition: all 0.5s ease-out;
-    background: rgba(144, 71, 3, 0.5);
+    background: rgba(10, 50, 70, 0.5);
 
     &.active {
       transform: translateX(0);
-      background: rgba(144, 71, 3, 0.95);
-    }
-
-    .button {
-      position: absolute;
-      right: 30px;
+      background: rgba(10, 50, 70, 1);
     }
   }
 
@@ -77,12 +63,12 @@ export default {
   }
 
   .sidebar-inner {
-    margin-top: 80px;
-    background: rgba(200, 108, 21, 0.5);
-    padding: 3rem;
+    margin-top: 60px;
+    border: 1px solid $white;
+    padding: 3rem 3rem 6rem 3rem;
     opacity: 0;
     transition: all 0.2s ease-in-out;
-    border-radius: 5px;
+    border-radius: 1px;
   }
 
   .sidebar.active .sidebar-inner {

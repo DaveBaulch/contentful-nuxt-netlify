@@ -1,10 +1,20 @@
 <template>
   <div :class="{ visible: contactActive }" class="contact-wrapper">
-    <CloseButton />
+    <button
+      id="close-button"
+      type="button"
+      class="button close-button"
+      @click="closeContact"
+    >
+      <span class="sr-only">
+        Close
+      </span>
+    </button>
 
     <div class="contact-inner">
       <div class="left-col">
-        some text goes here
+        <h2>It would be great to hear from you!</h2>
+        <p>Please send me a message if I can be of help in any way, or you'd just like to chat...</p>
       </div>
 
       <div class="right-col">
@@ -19,48 +29,61 @@
             @submit.prevent="checkForm"
           >
             <input type="hidden" name="form-name" value="contact">
-            <div ref="name-wrapper" class="form-item">
+            <div ref="name-wrapper" class="form-item" :class="{ hasError: formEntered && !nameValid }">
               <label for="name">Name*</label>
               <input
                 id="name"
                 v-model="form.name"
                 type="text"
                 name="name"
-                placeholder="Your name.."
+                placeholder="Your name"
                 @focus="onFocus"
                 @blur="onBlur"
               >
-              <span class="error" :class="{ visible: formEntered && !nameValid }">Please add your name</span>
+              <span class="error">Please add your name</span>
             </div>
 
-            <div ref="email-wrapper" class="form-item">
+            <div ref="email-wrapper" class="form-item" :class="{ hasError: formEntered && !emailValid }">
               <label for="email">Email address*</label>
               <input
                 id="email"
                 v-model="form.email"
                 type="text"
                 name="email"
-                placeholder="Your email.."
+                placeholder="Your email"
                 @focus="onFocus"
                 @blur="onBlur"
               >
-              <span class="error" :class="{ visible: formEntered && !emailValid }">Please add a valid email address</span>
+              <span class="error">Please add a valid email address</span>
             </div>
 
-            <div ref="message-wrapper" class="form-item">
+            <div ref="phone-wrapper" class="form-item">
+              <label for="phone">Phone number</label>
+              <input
+                id="phone"
+                v-model="form.phone"
+                type="text"
+                name="phone"
+                placeholder="Your phone number"
+                @focus="onFocus"
+                @blur="onBlur"
+              >
+            </div>
+
+            <div ref="message-wrapper" class="form-item" :class="{ hasError: formEntered && !messageValid }">
               <label for="message">Message*</label>
               <textarea
                 id="message"
                 v-model="form.message"
                 name="message"
-                placeholder="Write something.."
+                placeholder="How can I be of help?"
                 @focus="onFocus"
                 @blur="onBlur"
               />
-              <span class="error" :class="{ visible: formEntered && !messageValid }">Please add your name</span>
+              <span class="error">Please add your message</span>
             </div>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Send" class="button form-button">
           </form>
         </div>
 
@@ -88,6 +111,7 @@ export default {
       form: {
         name: '',
         email: '',
+        phone: '',
         message: ''
       }
     }
@@ -122,6 +146,8 @@ export default {
   methods: {
     onFocus (e) {
       this.$refs[e.target.name + '-wrapper'].classList.add('focus')
+      this.$refs[e.target.name + '-wrapper'].classList.remove('hasError')
+      this.$store.dispatch('contact/formEntered', false)
     },
     onBlur (e) {
       this.$refs[e.target.name + '-wrapper'].classList.remove('focus')
@@ -135,6 +161,10 @@ export default {
     },
     checkForm () {
       this.$store.dispatch('contact/formEntered', true)
+
+      if (!this.emailValid) {
+        this.form.email = ''
+      }
 
       if (this.formEntered && this.nameValid && this.emailValid && this.messageValid) {
         this.handleSubmit()
@@ -171,6 +201,16 @@ export default {
       this.form.name = ''
       this.form.email = ''
       this.form.message = ''
+    },
+    closeContact () {
+      this.$store.dispatch('contact/toggleContact')
+      // clear the state values for the form on closing the modal
+      this.$store.dispatch('contact/formEntered', false)
+      this.$store.dispatch('contact/formSubmitted', false)
+      this.$store.dispatch('contact/formSuccess', false)
+      this.$store.dispatch('contact/formError', false)
+      this.clearForm()
+      this.$nextTick(() => document.getElementById('contact-button').focus())
     }
   }
 }
@@ -190,7 +230,7 @@ export default {
   left: 0;
   overflow: auto;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
   color: #333;
   background: rgba(10, 50, 70, 100);
   backface-visibility: hidden;
@@ -198,11 +238,12 @@ export default {
   z-index: 10000;
   transition: all 0.5s ease-in-out;
   opacity: 0;
+  padding: 30px;
 
   &.visible {
     transition: all 0.5s ease-in-out;
     transform: translateY(0);
-    opacity: 0.98;
+    opacity: 1;
   }
 
   @include breakpoint(md) {
@@ -245,6 +286,7 @@ export default {
       z-index: 500;
       transform: translateY(0);
       transition: none;
+      opacity: 0.98;
 
       &:before,
       &:after {
@@ -257,10 +299,19 @@ export default {
 
 .contact-inner {
   width: 1200px;
-  margin: 0 auto;
+  margin: 10px auto 0  auto;
   z-index: 1000;
   display: flex;
   flex-direction: column;
+  padding: 30px;
+
+  .left-col {
+    text-align: center;;
+  }
+
+  .left-col * {
+    color: $white;
+  }
 
   @include breakpoint(md) {
     flex-direction: row;
@@ -273,6 +324,12 @@ export default {
       justify-content: center;
       opacity: 0;
       transition: all 0.2s ease-in-out;
+      flex-direction: column;
+      padding: 0 100px;
+    }
+
+    .left-col * {
+      color: $grey-dark;
     }
   }
 
@@ -299,16 +356,11 @@ export default {
   }
 }
 
-.thankyou-block {
-  display: none;
-
-  &.visible {
-    display: block;
-  }
-}
-
 .success-block {
   display: none;
+  * {
+    color: $white;
+  }
 
   &.visible {
     display: block;
@@ -317,6 +369,9 @@ export default {
 
 .error-block {
   display: none;
+  * {
+    color: $white;
+  }
 
   &.visible {
     display: none;
@@ -330,16 +385,116 @@ export default {
   flex-direction: column;
 }
 
-.error {
-  color: $green;
-  display: none;
+.form-item {
+  position: relative;
+  padding-top: 50px;
 
-  &.visible {
-    display: block;
+  @include breakpoint(md) {
+    padding-top: 60px
   }
 }
 
-.form-item.focus {
-  // border: 1px solid #f0f;
+input[type='text'],
+input[type='email'],
+textarea {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  border: 0;
+  border-bottom: 1px solid $grey-light;
+  color: $white;
+}
+
+textarea {
+  height: 100px;
+}
+
+.error {
+  position: absolute;
+  top: 75px;
+  color: $yellow;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  z-index: -1;
+  font-size: 1.8rem;
+
+  .hasError & {
+    opacity: 1;
+  }
+
+  .focus & {
+    opacity: 0;
+  }
+}
+
+label {
+  color: $white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 100%;
+  transition: transform 0.3s, color 0.3s;
+
+  .focus & {
+    transform: translateY(30%) scale(0.8);
+    color: $yellow;
+  }
+}
+
+.form-button {
+  width: auto;
+  margin: 0 auto;
+  color: $white;
+  border-color: $white;
+  margin-top: 3rem;
+  background-color: transparent;
+  background: none;
+  padding:  1.3rem 1.5rem;
+}
+
+::-webkit-input-placeholder {
+  color: $grey-mid;
+  opacity: 1;
+
+  .hasError & {
+    opacity: 0;
+  }
+}
+
+::-moz-placeholder {
+  color: $grey-mid;
+  opacity: 1;
+
+  .hasError & {
+    opacity: 0;
+  }
+}
+
+:-ms-input-placeholder {
+  color: $grey-mid;
+  opacity: 1;
+
+  .hasError & {
+    opacity: 0;
+  }
+}
+
+.close-button {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  z-index: 2000;
+  background: transparent url('~assets/layout/icon-mobile-menu-close-white.svg') no-repeat center center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  .contact-wrapper.visible & {
+    opacity: 1;
+  }
 }
 </style>

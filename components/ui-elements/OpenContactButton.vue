@@ -1,5 +1,5 @@
 <template>
-  <button id="contact-button" class="button" @click="toggleContact">
+  <button id="contact-button" class="button open-contact-button" @click="toggleContact">
     <slot>
       <span v-if="text">{{ text }}</span>
     </slot>
@@ -25,4 +25,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .open-contact-button {
+    color: $white;
+    border-color: $white;
+    background-color: transparent;
+  }
 </style>

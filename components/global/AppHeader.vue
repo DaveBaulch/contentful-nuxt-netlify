@@ -11,7 +11,7 @@
       <header class="header__inner container">
         <!-- <AppLogo alt="Homepage" /> -->
 
-        <div class="drawer-toggle" role="button" @click="$store.dispatch('nav/toggleSidebar')">
+        <div class="drawer-toggle" role="button" @click="toggleSidebar">
           <div class="bar" />
           <div class="bar" />
           <div class="bar" />
@@ -43,6 +43,11 @@ export default {
     },
     currentPage () {
       return this.$route.name
+    }
+  },
+  methods: {
+    toggleSidebar () {
+      this.$store.dispatch('nav/toggleSidebar')
     }
   }
 }
