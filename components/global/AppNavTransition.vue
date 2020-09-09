@@ -33,7 +33,8 @@ export default {
 
     .about &,
     .cv &,
-    .blog & {
+    .blog &,
+    .blog-slug & {
       width: 90px;
       height: 100px;
       transform: translate3d(0, -36px, 0);
@@ -48,7 +49,8 @@ export default {
 
       .about &,
       .cv &,
-      .blog & {
+      .blog &,
+      .blog-slug & {
         width: 90px;
         height: 100px;
         transform: translate3d(0, -4px, 0);
@@ -64,7 +66,8 @@ export default {
 
       .about &,
       .cv &,
-      .blog & {
+      .blog &,
+      .blog-slug &{
         width: 179px;
         height: 200px;
         transform: translate3d(0, -37px, 0)
@@ -80,7 +83,8 @@ export default {
 
     .about &,
     .cv &,
-    .blog & {
+    .blog &,
+    .blog-slug & {
       transform: translate3d(-30px, -10px, 0);
     }
 
@@ -90,7 +94,8 @@ export default {
 
     .about &,
     .cv &,
-    .blog & {
+    .blog &,
+    .blog-slug & {
         transform: translate3d(-70px, 4px, 0);
       }
     }
@@ -101,7 +106,8 @@ export default {
 
       .about &,
       .cv &,
-      .blog & {
+      .blog &,
+      .blog-slug & {
         transform: translate3d(-70px, 9px, 0);
       }
     }
@@ -117,7 +123,8 @@ export default {
 
     .about &,
     .cv &,
-    .blog & {
+    .blog &,
+    .blog-slug & {
       left: 190px;
       top: 200px;
       transform: translate3d(-71px, -130px, 0);
@@ -131,7 +138,8 @@ export default {
 
       .about &,
       .cv &,
-      .blog & {
+      .blog &,
+      .blog-slug & {
         left: 190px;
         top: 200px;
       }
@@ -145,7 +153,8 @@ export default {
 
       .about &,
       .cv &,
-      .blog & {
+      .blog &,
+      .blog-slug & {
         transform: translate3d(-71px, -130px, 0);
         color: $white;
         font-size: 4rem;
