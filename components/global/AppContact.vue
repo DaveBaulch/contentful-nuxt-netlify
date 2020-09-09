@@ -312,7 +312,7 @@ export default {
   padding: 0;
 
   .left-col {
-    text-align: center;;
+    text-align: center;
   }
 
   .left-col * {
@@ -334,6 +334,10 @@ export default {
       flex-direction: column;
       padding: 0 100px;
     }
+
+  .left-col {
+    text-align: left;
+  }
 
     .left-col * {
       color: $grey-dark;
