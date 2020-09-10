@@ -26,6 +26,7 @@
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             class="contact-form"
+            autocomplete="off"
             @submit.prevent="checkForm"
           >
             <input type="hidden" name="form-name" value="contact">
@@ -518,6 +519,10 @@ label {
 
   .contact-wrapper.visible & {
     opacity: 1;
+  }
+
+  input:-internal-autofill-selected {
+    background-color: transparent;
   }
 }
 </style>
