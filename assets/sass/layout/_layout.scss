@@ -22,8 +22,9 @@ body {
 }
 
 main {
+  max-width: 768px;
   margin: 0 auto;
-  padding: 0 0 4rem 0;
+  padding: 2rem 0 4rem 0;
 
   // ensure fullscreen elements are on top
   .fullscreen & {

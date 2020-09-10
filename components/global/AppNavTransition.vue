@@ -7,7 +7,8 @@
     </div>
 
     <h2 key="profile-name" class="profile-name">
-      <span>Dave Baulch</span>
+      <span class="profile-name__name">Dave Baulch</span>
+      <span class="profile-name__title">Front-End Developer</span>
     </h2>
   </transition-group>
 </template>
@@ -33,6 +34,7 @@ export default {
 
     .about &,
     .cv &,
+    .work &,
     .blog &,
     .blog-slug & {
       width: 90px;
@@ -49,6 +51,7 @@ export default {
 
       .about &,
       .cv &,
+      .work &,
       .blog &,
       .blog-slug & {
         width: 90px;
@@ -66,6 +69,7 @@ export default {
 
       .about &,
       .cv &,
+      .work &,
       .blog &,
       .blog-slug &{
         width: 179px;
@@ -83,6 +87,7 @@ export default {
 
     .about &,
     .cv &,
+    .work &,
     .blog &,
     .blog-slug & {
       transform: translate3d(-30px, -10px, 0);
@@ -94,6 +99,7 @@ export default {
 
     .about &,
     .cv &,
+    .work &,
     .blog &,
     .blog-slug & {
         transform: translate3d(-70px, 4px, 0);
@@ -106,6 +112,7 @@ export default {
 
       .about &,
       .cv &,
+      .work &,
       .blog &,
       .blog-slug & {
         transform: translate3d(-70px, 9px, 0);
@@ -117,18 +124,44 @@ export default {
     position: absolute;
     left: 150px;
     top: 180px;
-    transition: all 0.5s ease-in-out;
     font-size: 2.6rem;
+    transition: all 0.5s ease-in-out;
     color: #0a3246;
+
+    .profile-name__name {
+      font-weight: bold;
+      display: block;
+    }
+
+    .profile-name__title {
+      text-transform: uppercase;
+      display: block;
+      font-size: 1.6rem;
+      line-height: 1;
+
+      @include breakpoint(md) {
+        font-size: 2.6rem;
+      }
+
+      .about &,
+      .cv &,
+      .work &,
+      .blog &,
+      .blog-slug & {
+        display: none;
+      }
+    }
 
     .about &,
     .cv &,
+    .work &,
     .blog &,
     .blog-slug & {
       left: 190px;
       top: 200px;
       transform: translate3d(-71px, -130px, 0);
       color: $white;
+      font-weight: normal;
     }
 
     @include breakpoint(sm) {
@@ -138,6 +171,7 @@ export default {
 
       .about &,
       .cv &,
+      .work &,
       .blog &,
       .blog-slug & {
         left: 190px;
@@ -153,6 +187,7 @@ export default {
 
       .about &,
       .cv &,
+      .work &,
       .blog &,
       .blog-slug & {
         transform: translate3d(-71px, -130px, 0);

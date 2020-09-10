@@ -45,6 +45,7 @@ export default {
   plugins: [
     '~/plugins/contentful',
     '~/plugins/posts',
+    '~/plugins/work',
     {
       src: '~/plugins/v-waypoint.js',
       mode: 'client'

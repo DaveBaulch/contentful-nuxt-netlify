@@ -14,15 +14,20 @@
         </nuxt-link>
       </li>
       <li class="nav__item">
+        <nuxt-link to="/work" class="nav__link">
+          Work
+        </nuxt-link>
+      </li>
+      <li class="nav__item">
         <nuxt-link to="/cv" class="nav__link">
           CV
         </nuxt-link>
       </li>
-      <li class="nav__item">
+      <!-- <li class="nav__item">
         <nuxt-link to="/blog" class="nav__link">
           Blog
         </nuxt-link>
-      </li>
+      </li> -->
       <li class="nav__item nav-item__contact">
         <button class="nav-item__contact-button" @click="toggleContact">
           Contact
@@ -131,6 +136,11 @@ a.nav__link {
     text-decoration: underline;
   }
 }
+
+.nuxt-link-exact-active {
+  border: 1px solid $white;
+}
+
 .nav__button {
   width: 44px;
   height: 44px;
