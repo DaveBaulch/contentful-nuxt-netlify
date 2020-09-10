@@ -26,7 +26,6 @@
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             class="contact-form"
-            autocomplete="off"
             @submit.prevent="checkForm"
           >
             <input type="hidden" name="form-name" value="contact">
