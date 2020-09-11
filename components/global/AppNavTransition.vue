@@ -84,6 +84,7 @@ export default {
     left: 153px;
     top: 138px;
     transition: all 0.5s ease-in-out;
+    display: none;
 
     .about &,
     .cv &,
@@ -96,12 +97,13 @@ export default {
     @include breakpoint(sm) {
       left: 190px;
       top: 130px;
+      display: block;
 
-    .about &,
-    .cv &,
-    .work &,
-    .blog &,
-    .blog-slug & {
+      .about &,
+      .cv &,
+      .work &,
+      .blog &,
+      .blog-slug & {
         transform: translate3d(-70px, 4px, 0);
       }
     }
@@ -131,6 +133,11 @@ export default {
     .profile-name__name {
       font-weight: bold;
       display: block;
+      line-height: 1.3;
+
+      @include breakpoint(md) {
+        line-height: 1.5;
+      }
     }
 
     .profile-name__title {

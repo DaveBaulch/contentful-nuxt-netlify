@@ -44,8 +44,11 @@ export default {
   */
   plugins: [
     '~/plugins/contentful',
-    '~/plugins/posts',
+    '~/plugins/home',
+    '~/plugins/about',
     '~/plugins/work',
+    '~/plugins/cv',
+    // '~/plugins/posts',
     {
       src: '~/plugins/v-waypoint.js',
       mode: 'client'

@@ -362,6 +362,8 @@ export default {
 }
 
 .contact-block {
+  padding-bottom: 4rem;
+
   &.hidden {
     display: none;
   }
