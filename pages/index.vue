@@ -17,6 +17,10 @@ export default {
     homePageBody () {
       return this.$store.state.home.body
     }
+  },
+  head: {
+    title: 'Homepage',
+    meta: []
   }
   // mounted () {
   //   this.$store.dispatch('home/getHomeContent')

@@ -24,6 +24,10 @@ export default {
     cvPageItems () {
       return this.$store.state.cv.items
     }
+  },
+  head: {
+    title: 'CV',
+    meta: []
   }
 }
 </script>

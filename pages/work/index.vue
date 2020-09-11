@@ -19,6 +19,10 @@ export default {
     workPage () {
       return this.$store.state.work
     }
+  },
+  head: {
+    title: 'Work',
+    meta: []
   }
 }
 </script>

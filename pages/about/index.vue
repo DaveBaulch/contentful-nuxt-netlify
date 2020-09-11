@@ -18,6 +18,10 @@ export default {
     aboutPageBody () {
       return this.$store.state.about.body
     }
+  },
+  head: {
+    title: 'About',
+    meta: []
   }
 }
 </script>
