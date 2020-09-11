@@ -84,17 +84,14 @@ export default {
 
 .cv-item__company {
   font-weight: bold;
-  line-height: 1.2;
-
-  @include breakpoint(sm) {
-    font-size: 2.8rem;
-  }
+  color: #d94a19;
+  font-size: 2rem;
 }
 
 .cv-item__date {
   margin: 0;
   padding: 0;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .cv-item__body {

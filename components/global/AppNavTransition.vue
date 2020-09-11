@@ -84,13 +84,13 @@ export default {
     left: 153px;
     top: 138px;
     transition: all 0.5s ease-in-out;
-    display: none;
 
     .about &,
     .cv &,
     .work &,
     .blog &,
     .blog-slug & {
+      display: none;
       transform: translate3d(-30px, -10px, 0);
     }
 
@@ -104,6 +104,7 @@ export default {
       .work &,
       .blog &,
       .blog-slug & {
+        display: block;
         transform: translate3d(-70px, 4px, 0);
       }
     }

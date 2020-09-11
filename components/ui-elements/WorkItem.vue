@@ -72,7 +72,7 @@ export default {
   margin: 3rem 0 2rem 0;
   border: 1px solid $grey;
   border-radius: 5px;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
 
