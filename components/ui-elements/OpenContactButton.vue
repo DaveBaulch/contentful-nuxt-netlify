@@ -25,6 +25,7 @@ export default {
   methods: {
     toggleContact () {
       this.$store.dispatch('contact/toggleContact', 'open-contact-button')
+      this.$nextTick(() => this.$nuxt.$emit('focus-close-contact-button'))
     }
   }
 }

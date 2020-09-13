@@ -104,7 +104,7 @@ export default {
 
 .nav-item__contact-button {
   background-color: transparent;
-  border: 0;
+  border: 1px solid transparent;
   color: $white;
   padding: 1rem;
   line-height: normal;

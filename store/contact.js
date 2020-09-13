@@ -6,13 +6,14 @@ export const state = () => ({
   formEntered: false,
   formSubmitted: false,
   formSuccess: false,
-  formError: false
+  formError: false,
+  whichOpenButtonId: null
 })
 
 // actions
 export const actions = {
-  toggleContact ({ commit }) {
-    commit('TOGGLE_CONTACT')
+  toggleContact ({ commit }, id) {
+    commit('TOGGLE_CONTACT', id)
   },
 
   formEntered ({ commit }, status) {
@@ -35,7 +36,7 @@ export const actions = {
 // mutations
 export const mutations = {
 
-  TOGGLE_CONTACT (state) {
+  TOGGLE_CONTACT (state, id) {
     state.contactActive = !state.contactActive
 
     // manage focus
@@ -44,6 +45,8 @@ export const mutations = {
     Array.prototype.forEach.call(focusableItems, function (item) {
       item.setAttribute('tabindex', tabindexVal)
     })
+
+    state.whichOpenButtonId = id
   },
 
   FORM_ENTERED (state, status) {
