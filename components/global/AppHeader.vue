@@ -11,11 +11,19 @@
 
     <div class="header">
       <header class="header__inner container">
-        <div class="drawer-toggle" role="button" @click="toggleSidebar">
-          <div class="bar" />
-          <div class="bar" />
-          <div class="bar" />
-        </div>
+        <button
+          id="nav-button"
+          class="nav-button"
+          role="button"
+          aria-controls="sidebar"
+          aria-expanded="false"
+          @click="toggleSidebar"
+        >
+          <span class="bar" />
+          <span class="bar" />
+          <span class="bar" />
+          <span class="sr-only">Menu</span>
+        </button>
 
         <div class="app-links">
           <AppLinks />
@@ -147,7 +155,7 @@ export default {
   }
 }
 
-.drawer-toggle {
+.nav-button {
   margin: 1rem 0;
   display: flex;
   flex-direction: column;
@@ -157,13 +165,14 @@ export default {
   padding: 10px;
   cursor: pointer;
   border: 1px solid $white;
+  background-color: transparent;
 
   @include breakpoint(md) {
     display: none;
   }
 }
 
-.drawer-toggle .bar {
+.nav-button .bar {
   width: 100%;
   height: 2px;
   background-color: white;

@@ -9,7 +9,6 @@
         <WorkItem :item="item" />
       </section>
     </div>
-    </div>
   </main>
 </template>
 

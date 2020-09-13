@@ -2,7 +2,14 @@
   <div class="sidebar-wrapper">
     <div v-if="showSidebar" class="sidebar-background" @click="toggleSidebar" />
 
-    <div class="sidebar" :class="{active: showSidebar}">
+    <div
+      id="sidebar"
+      class="sidebar"
+      :class="{active: showSidebar}"
+      aria-label="Primary Navigation"
+      aria-expanded="false"
+      aria-hidden="true"
+    >
       <CloseSidebarButton />
 
       <div class="sidebar-inner">
