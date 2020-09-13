@@ -1,5 +1,5 @@
 <template>
-  <button id="contact-button" ref="contactButton" class="button open-contact-button" @click="toggleContact">
+  <button id="open-contact-button" ref="contactButton" class="button open-contact-button" @click="toggleContact">
     <slot>
       <span v-if="text">{{ text }}</span>
     </slot>
@@ -24,8 +24,7 @@ export default {
   },
   methods: {
     toggleContact () {
-      this.$store.dispatch('contact/toggleContact')
-      this.$nextTick(() => this.$nuxt.$emit('focus-close-contact-button'))
+      this.$store.dispatch('contact/toggleContact', 'open-contact-button')
     }
   }
 }

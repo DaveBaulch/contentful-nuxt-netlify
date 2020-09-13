@@ -125,6 +125,9 @@ export default {
     contactActive () {
       return this.$store.state.contact.contactActive
     },
+    whichOpenElementId () {
+      return this.$store.state.contact.whichOpenButtonId
+    },
     nameValid () {
       return this.form.name !== ''
     },
@@ -217,14 +220,19 @@ export default {
       this.form.message = ''
     },
     closeContact () {
-      this.$store.dispatch('contact/toggleContact')
+      this.$store.dispatch('contact/toggleContact', this.whichOpenElementId)
       // clear the state values for the form on closing the modal
       this.$store.dispatch('contact/formEntered', false)
       this.$store.dispatch('contact/formSubmitted', false)
       this.$store.dispatch('contact/formSuccess', false)
       this.$store.dispatch('contact/formError', false)
       this.clearForm()
-      this.$nextTick(() => this.$nuxt.$emit('focus-open-contact-button'))
+
+      if (this.whichOpenElementId === 'open-contact-link') {
+        this.$nextTick(() => this.$nuxt.$emit('focus-open-contact-link'))
+      } else {
+        this.$nextTick(() => this.$nuxt.$emit('focus-open-contact-button'))
+      }
     }
   }
 }

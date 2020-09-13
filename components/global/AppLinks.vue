@@ -29,7 +29,7 @@
         </nuxt-link>
       </li> -->
       <li class="nav__item nav-item__contact">
-        <button class="nav-item__contact-button" @click="toggleContact">
+        <button id="open-contact-link" ref="contactLink" class="nav-item__contact-button" @click="toggleContact">
           Contact
         </button>
       </li>
@@ -39,9 +39,17 @@
 
 <script>
 export default {
+  created () {
+    this.$nuxt.$on('focus-open-contact-link', () => {
+      this.$refs.contactLink.focus()
+    })
+  },
+  beforeDestroy () {
+    this.$nuxt.$off('focus-open-contact-link')
+  },
   methods: {
     toggleContact () {
-      this.$store.dispatch('contact/toggleContact')
+      this.$store.dispatch('contact/toggleContact', 'open-contact-link')
       this.$nextTick(() => this.$nuxt.$emit('focus-close-contact-button'))
     }
   }
