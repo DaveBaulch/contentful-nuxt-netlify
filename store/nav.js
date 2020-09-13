@@ -26,5 +26,10 @@ export const mutations = {
     Array.prototype.forEach.call(notFocusableItems, function (item) {
       item.setAttribute('tabindex', tabindexVal)
     })
+
+    const focusableItems = document.querySelectorAll('.js-sidebar-focussable')
+    Array.prototype.forEach.call(focusableItems, function (item) {
+      item.setAttribute('tabindex', 0)
+    })
   }
 }

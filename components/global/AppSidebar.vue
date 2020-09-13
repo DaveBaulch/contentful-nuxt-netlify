@@ -14,8 +14,8 @@
       <CloseSidebarButton class="js-sidebar-focussable" />
 
       <div class="sidebar-inner">
-        <AppLinks />
-        <OpenContactButton text="Contact me!" class="js-sidebar-focussable" />
+        <AppMobileLinks />
+        <OpenContactButton text="Contact me!" class="js-sidebar-focussable" tabindex="-1" />
       </div>
     </div>
   </div>

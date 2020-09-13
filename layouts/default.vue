@@ -20,19 +20,19 @@
 <script>
 
 export default {
-  computed: {
-    isSidebar () {
-      return this.$store.getters['nav/showSidebar']
-    }
-  },
+  // computed: {
+  //   isSidebar () {
+  //     return this.$store.getters['nav/showSidebar']
+  //   }
+  // },
 
-  watch: {
-    '$route' () {
-      if (process.client && this.isSidebar && window.innerWidth < 768) {
-        this.$store.dispatch('nav/toggleSidebar')
-      }
-    }
-  }
+  // watch: {
+  //   '$route' () {
+  //     if (process.client && this.isSidebar && window.innerWidth > 768) {
+  //       this.$store.dispatch('nav/toggleSidebar')
+  //     }
+  //   }
+  // }
 }
 
 </script>

@@ -4,34 +4,24 @@
       class="nav"
     >
       <li class="nav__item">
-        <nuxt-link to="/" class="nav__link js-sidebar-focussable">
+        <nuxt-link to="/" class="nav__link js-sidebar-focussable" tabindex="-1">
           Home
         </nuxt-link>
       </li>
       <li class="nav__item">
-        <nuxt-link to="/about" class="nav__link js-sidebar-focussable">
+        <nuxt-link to="/about" class="nav__link js-sidebar-focussable" tabindex="-1">
           About
         </nuxt-link>
       </li>
       <li class="nav__item">
-        <nuxt-link to="/work" class="nav__link js-sidebar-focussable">
+        <nuxt-link to="/work" class="nav__link js-sidebar-focussable" tabindex="-1">
           Work
         </nuxt-link>
       </li>
       <li class="nav__item">
-        <nuxt-link to="/cv" class="nav__link js-sidebar-focussable">
+        <nuxt-link to="/cv" class="nav__link js-sidebar-focussable" tabindex="-1">
           CV
         </nuxt-link>
-      </li>
-      <!-- <li class="nav__item">
-        <nuxt-link to="/blog" class="nav__link js-sidebar-focussable">
-          Blog
-        </nuxt-link>
-      </li> -->
-      <li class="nav__item nav-item__contact">
-        <button id="open-contact-link" ref="contactLink" class="nav-item__contact-link" @click="toggleContact">
-          Contact
-        </button>
       </li>
     </ul>
   </div>
@@ -102,7 +92,7 @@ export default {
   }
 }
 
-.nav-item__contact-link {
+.nav-item__contact-button {
   background-color: transparent;
   border: 1px solid transparent;
   color: $white;
