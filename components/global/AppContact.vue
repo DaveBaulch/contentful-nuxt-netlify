@@ -492,6 +492,12 @@ label {
   background-color: transparent;
   background: none;
   padding:  1.3rem 1.5rem;
+
+  &:active,
+  &:focus {
+    outline: 0;
+    border: $focus-outline;
+  }
 }
 
 ::-webkit-input-placeholder {
@@ -542,9 +548,9 @@ label {
   .contact-wrapper.visible & {
     opacity: 1;
   }
+}
 
-  input:-internal-autofill-selected {
-    background-color: transparent;
-  }
+input:-internal-autofill-selected {
+  background-color: transparent;
 }
 </style>

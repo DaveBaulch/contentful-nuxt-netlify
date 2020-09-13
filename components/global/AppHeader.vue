@@ -70,6 +70,7 @@ export default {
   methods: {
     toggleSidebar () {
       this.$store.dispatch('nav/toggleSidebar')
+      this.$store.dispatch('contact/toggleSidebar')
       this.$nextTick(() => this.$nuxt.$emit('focus-close-nav-button'))
     }
   }
