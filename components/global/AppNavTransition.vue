@@ -26,7 +26,8 @@ export default {
     width: 120px;
     height: 134px;
     position: absolute;
-    left: 10px;
+    //left: 10px;
+    left: 20px;
     top: 115px;
     transition: all 0.5s ease-in-out;
     border: 2px solid $white;
@@ -81,7 +82,8 @@ export default {
 
   .button-name {
     position: absolute;
-    left: 143px;
+    //left: 143px;
+    left: 153px;
     top: 138px;
     transition: all 0.5s ease-in-out;
 
@@ -125,7 +127,8 @@ export default {
 
   .profile-name {
     position: absolute;
-    left: 140px;
+    //left: 140px;
+    left: 150px;
     top: 180px;
     font-size: 2.6rem;
     transition: all 0.5s ease-in-out;
@@ -169,7 +172,8 @@ export default {
     .work &,
     .blog &,
     .blog-slug & {
-      left: 180px;
+      //left: 180px;
+      left: 190px;
       top: 200px;
       transform: translate3d(-71px, -130px, 0);
       color: $white;
