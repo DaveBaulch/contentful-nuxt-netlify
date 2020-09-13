@@ -42,7 +42,7 @@ export default {
   methods: {
     toggleContact () {
       this.$store.dispatch('contact/toggleContact')
-      this.$nextTick(() => this.$nuxt.$emit('focus-close-button'))
+      this.$nextTick(() => this.$nuxt.$emit('focus-close-nav-button'))
     }
   }
 }

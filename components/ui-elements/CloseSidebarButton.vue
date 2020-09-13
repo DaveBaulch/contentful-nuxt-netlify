@@ -1,5 +1,6 @@
 <template>
   <button
+    ref="closeSidebarButton"
     type="button"
     class="button close-sidebar-button"
     @click="toggleSidebar"
@@ -12,9 +13,18 @@
 
 <script>
 export default {
+  created () {
+    this.$nuxt.$on('focus-close-nav-button', () => {
+      this.$refs.closeSidebarButton.focus()
+    })
+  },
+  beforeDestroy () {
+    this.$nuxt.$off('focus-close-nav-button')
+  },
   methods: {
     toggleSidebar () {
       this.$store.dispatch('nav/toggleSidebar')
+      this.$nextTick(() => this.$nuxt.$emit('focus-open-nav-button'))
     }
   }
 }
@@ -44,6 +54,12 @@ export default {
 
   .sidebar.active & {
     opacity: 1;
+  }
+
+  &:active,
+  &:focus {
+    outline: 0;
+    border: $focus-outline;
   }
 }
 

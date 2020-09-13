@@ -15,17 +15,17 @@ export default {
     }
   },
   created () {
-    this.$nuxt.$on('focus-contact-button', () => {
+    this.$nuxt.$on('focus-open-contact-button', () => {
       this.$refs.contactButton.focus()
     })
   },
   beforeDestroy () {
-    this.$nuxt.$off('focus-contact-button')
+    this.$nuxt.$off('focus-open-contact-button')
   },
   methods: {
     toggleContact () {
       this.$store.dispatch('contact/toggleContact')
-      this.$nextTick(() => this.$nuxt.$emit('focus-close-button'))
+      this.$nextTick(() => this.$nuxt.$emit('focus-close-contact-button'))
     }
   }
 }
@@ -38,5 +38,11 @@ export default {
     background: linear-gradient(to left, rgba(217, 74, 25, 0.9) 60%, rgba(217, 74, 25, 0.5) 90%);
     display: block;
     overflow: visible;
+
+    &:active,
+    &:focus {
+      outline: 0;
+      border: $focus-outline;
+    }
   }
 </style>

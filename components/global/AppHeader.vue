@@ -13,7 +13,7 @@
       <header class="header__inner container">
         <button
           id="nav-button"
-          ref="navButton"
+          ref="openNavButton"
           class="nav-button"
           role="button"
           aria-controls="sidebar"
@@ -51,7 +51,7 @@ export default {
   },
   watch: {
     showSidebar (val) {
-      const navButton = this.$refs.navButton
+      const navButton = this.$refs.openNavButton
       if (navButton.getAttribute('aria-expanded') === 'false') {
         navButton.setAttribute('aria-expanded', 'true')
       } else {
@@ -59,9 +59,18 @@ export default {
       }
     }
   },
+  created () {
+    this.$nuxt.$on('focus-open-nav-button', () => {
+      this.$refs.openNavButton.focus()
+    })
+  },
+  beforeDestroy () {
+    this.$nuxt.$off('focus-open-nav-button')
+  },
   methods: {
     toggleSidebar () {
       this.$store.dispatch('nav/toggleSidebar')
+      this.$nextTick(() => this.$nuxt.$emit('focus-close-nav-button'))
     }
   }
 }
@@ -183,6 +192,12 @@ export default {
 
   @include breakpoint(md) {
     display: none;
+  }
+
+  &:active,
+  &:focus {
+    outline: 0;
+    border: $focus-outline;
   }
 }
 

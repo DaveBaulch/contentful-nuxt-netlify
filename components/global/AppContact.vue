@@ -2,7 +2,7 @@
   <div id="contact" :class="{ visible: contactActive }" class="contact-wrapper">
     <button
       id="close-button"
-      ref="closeButton"
+      ref="closeContactButton"
       type="button"
       class="button close-button js-contact-focussable"
       @click="closeContact"
@@ -149,12 +149,12 @@ export default {
     }
   },
   created () {
-    this.$nuxt.$on('focus-close-button', () => {
-      this.$refs.closeButton.focus()
+    this.$nuxt.$on('focus-close-contact-button', () => {
+      this.$refs.closeContactButton.focus()
     })
   },
   beforeDestroy () {
-    this.$nuxt.$off('focus-close-button')
+    this.$nuxt.$off('focus-close-contact-button')
   },
   methods: {
     onFocus (e) {
@@ -224,7 +224,7 @@ export default {
       this.$store.dispatch('contact/formSuccess', false)
       this.$store.dispatch('contact/formError', false)
       this.clearForm()
-      this.$nextTick(() => this.$nuxt.$emit('focus-contact-button'))
+      this.$nextTick(() => this.$nuxt.$emit('focus-open-contact-button'))
     }
   }
 }
