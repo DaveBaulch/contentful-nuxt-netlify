@@ -9,10 +9,11 @@
 
     <div class="gradient-overlay" />
 
-    <div class="header">
+    <div id="header" class="header">
       <header class="header__inner container">
         <button
           id="nav-button"
+          ref="navButton"
           class="nav-button"
           role="button"
           aria-controls="sidebar"
@@ -43,10 +44,24 @@ export default {
     },
     currentPage () {
       return this.$route.name
+    },
+    showSidebar () {
+      return this.$store.getters['nav/showSidebar']
+    }
+  },
+  watch: {
+    showSidebar (val) {
+      const navButton = this.$refs.navButton
+      if (navButton.getAttribute('aria-expanded') === 'false') {
+        navButton.setAttribute('aria-expanded', 'true')
+      } else {
+        navButton.setAttribute('aria-expanded', 'false')
+      }
     }
   },
   methods: {
     toggleSidebar () {
+      this.btnActive = !this.btnActive
       this.$store.dispatch('nav/toggleSidebar')
     }
   }

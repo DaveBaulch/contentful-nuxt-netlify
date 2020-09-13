@@ -1,6 +1,6 @@
 <template>
   <div class="footer-wrapper">
-    <footer class="footer">
+    <footer id="footer" class="footer">
       <SocialLinks />
     </footer>
   </div>

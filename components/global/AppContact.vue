@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ visible: contactActive }" class="contact-wrapper">
+  <div id="contact" :class="{ visible: contactActive }" class="contact-wrapper">
     <button
       id="close-button"
       type="button"

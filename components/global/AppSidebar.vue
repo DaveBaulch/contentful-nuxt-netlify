@@ -4,6 +4,7 @@
 
     <div
       id="sidebar"
+      ref="sidebar"
       class="sidebar"
       :class="{active: showSidebar}"
       aria-label="Primary Navigation"
@@ -27,8 +28,21 @@ export default {
       return this.$store.getters['nav/showSidebar']
     }
   },
+  watch: {
+    showSidebar (val) {
+      const sidebarElement = this.$refs.sidebar
+      if (sidebarElement.getAttribute('aria-expanded') === 'false') {
+        sidebarElement.setAttribute('aria-expanded', 'true')
+        sidebarElement.setAttribute('aria-hidden', 'false')
+      } else {
+        sidebarElement.setAttribute('aria-expanded', 'false')
+        sidebarElement.setAttribute('aria-hidden', 'true')
+      }
+    }
+  },
   methods: {
     toggleSidebar () {
+      this.sidebarActive = !this.sidebarActive
       this.$store.dispatch('nav/toggleSidebar')
     }
   }

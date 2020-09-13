@@ -5,7 +5,7 @@
         image-src="bg.jpg"
       />
       <AppSidebar />
-      <div class="app-content">
+      <div id="content" class="app-content">
         <div class="app-content__inner">
           <Nuxt />
         </div>
