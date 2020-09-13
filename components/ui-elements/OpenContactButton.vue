@@ -1,5 +1,5 @@
 <template>
-  <button id="contact-button" class="button open-contact-button" @click="toggleContact">
+  <button id="contact-button" ref="contactButton" class="button open-contact-button" @click="toggleContact">
     <slot>
       <span v-if="text">{{ text }}</span>
     </slot>
@@ -14,10 +14,18 @@ export default {
       default: null
     }
   },
+  created () {
+    this.$nuxt.$on('focus-contact-button', () => {
+      this.$refs.contactButton.focus()
+    })
+  },
+  beforeDestroy () {
+    this.$nuxt.$off('focus-contact-button')
+  },
   methods: {
     toggleContact () {
       this.$store.dispatch('contact/toggleContact')
-      this.$nextTick(() => document.getElementById('close-button').focus())
+      this.$nextTick(() => this.$nuxt.$emit('focus-close-button'))
     }
   }
 }

@@ -61,7 +61,6 @@ export default {
   },
   methods: {
     toggleSidebar () {
-      this.btnActive = !this.btnActive
       this.$store.dispatch('nav/toggleSidebar')
     }
   }
