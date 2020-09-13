@@ -37,6 +37,13 @@ export const mutations = {
 
   TOGGLE_CONTACT (state) {
     state.contactActive = !state.contactActive
+
+    // manage focus
+    const focusableItems = document.querySelectorAll('a[href]:not(.js-contact-focussable), input:not(.js-contact-focussable), button:not(.js-contact-focussable), select, textarea, iframe')
+    const tabindexVal = state.sidebarActive ? '-1' : '0'
+    Array.prototype.forEach.call(focusableItems, function (item) {
+      item.setAttribute('tabindex', tabindexVal)
+    })
   },
 
   FORM_ENTERED (state, status) {

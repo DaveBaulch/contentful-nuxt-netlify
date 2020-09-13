@@ -4,7 +4,7 @@
       id="close-button"
       ref="closeButton"
       type="button"
-      class="button close-button"
+      class="button close-button js-contact-focussable"
       @click="closeContact"
     >
       <span class="sr-only">
@@ -38,6 +38,7 @@
                 type="text"
                 name="name"
                 placeholder="Your name"
+                class="js-contact-focussable"
                 @focus="onFocus"
                 @blur="onBlur"
               >
@@ -52,6 +53,7 @@
                 type="text"
                 name="email"
                 placeholder="Your email"
+                class="js-contact-focussable"
                 @focus="onFocus"
                 @blur="onBlur"
               >
@@ -66,6 +68,7 @@
                 type="text"
                 name="phone"
                 placeholder="Your phone number"
+                class="js-contact-focussable"
                 @focus="onFocus"
                 @blur="onBlur"
               >
@@ -78,13 +81,14 @@
                 v-model="form.message"
                 name="message"
                 placeholder="How can I be of help?"
+                class="js-contact-focussable"
                 @focus="onFocus"
                 @blur="onBlur"
               />
               <span class="error">Please add your message</span>
             </div>
 
-            <input type="submit" value="Send" class="button form-button">
+            <input type="submit" value="Send" class="button form-button js-contact-focussable">
           </form>
         </div>
 

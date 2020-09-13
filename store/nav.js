@@ -19,5 +19,12 @@ export const actions = {
 export const mutations = {
   TOGGLE_SIDEBAR (state) {
     state.sidebarActive = !state.sidebarActive
+
+    // manage focus
+    const focusableItems = document.querySelectorAll('a[href]:not(.js-sidebar-focussable), input:not(.js-sidebar-focussable), button:not(.js-sidebar-focussable), select, textarea, iframe')
+    const tabindexVal = state.sidebarActive ? '-1' : '0'
+    Array.prototype.forEach.call(focusableItems, function (item) {
+      item.setAttribute('tabindex', tabindexVal)
+    })
   }
 }

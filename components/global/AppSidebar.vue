@@ -11,11 +11,11 @@
       aria-expanded="false"
       aria-hidden="true"
     >
-      <CloseSidebarButton />
+      <CloseSidebarButton class="js-sidebar-focussable" />
 
       <div class="sidebar-inner">
         <AppLinks />
-        <OpenContactButton text="Contact me!" />
+        <OpenContactButton text="Contact me!" class="js-sidebar-focussable" />
       </div>
     </div>
   </div>
