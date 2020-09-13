@@ -20,7 +20,7 @@
           <a :href="`${item.fields.liveUrl}`">{{ item.fields.liveUrl }}</a>
         </p>
         <p v-if="item.fields.archiveUrl">
-          <a :href="`${item.fields.archiveUrl}`" class="work-item__archive-link">webarchive.org link</a>
+          <a :href="`${item.fields.archiveUrl}`" class="work-item__archive-link">View on webarchive.org</a>
         </p>
       </div>
     </div>
