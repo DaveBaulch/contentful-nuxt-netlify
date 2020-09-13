@@ -91,14 +91,15 @@ export default {
 }
 
 .work-item__img-wrapper {
-  padding: 1rem;
+  // padding: 1rem;
   max-height: 300px;
   overflow: hidden;
   text-align: center;
 
-  // @include breakpoint(md) {
-  //   border: 1px solid $grey;
-  // }
+  @include breakpoint(md) {
+    padding: 1rem;
+    // border: 1px solid $grey;
+  }
 }
 
 .work-item__right-col {
