@@ -13,9 +13,9 @@
         <h3 class="work-item__title">
           {{ item.fields.title }}
         </h3>
-        <p class="work-item__description">
+        <!-- <p class="work-item__description">
           {{ item.fields.body }}
-        </p>
+        </p> -->
         <p v-if="item.fields.liveUrl" class="work-item__link">
           <a :href="`${item.fields.liveUrl}`">{{ item.fields.liveUrl }}</a>
         </p>
@@ -72,7 +72,8 @@ export default {
   margin: 3rem 0 2rem 0;
   border: 1px solid $grey;
   border-radius: 5px;
-  padding: 1rem;
+  //padding: 1rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
 
@@ -146,6 +147,14 @@ export default {
   &:active,
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.work-item__link {
+  margin-top: 1rem;
+  a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 }
 
