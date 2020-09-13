@@ -21,15 +21,22 @@ export const mutations = {
     state.sidebarActive = !state.sidebarActive
 
     // manage focus
-    const notFocusableItems = document.querySelectorAll('a[href]:not(.js-sidebar-focussable), input:not(.js-sidebar-focussable), button:not(.js-sidebar-focussable), select, textarea, iframe')
-    const tabindexVal = state.sidebarActive ? '-1' : '0'
-    Array.prototype.forEach.call(notFocusableItems, function (item) {
-      item.setAttribute('tabindex', tabindexVal)
+    const focusableSidebarItems = document.querySelectorAll('.js-sidebar-focussable')
+    const notFocusableSidebarItems = document.querySelectorAll('a[href]:not(.js-sidebar-focussable), input:not(.js-sidebar-focussable), button:not(.js-sidebar-focussable), select, textarea, iframe')
+
+    const tabindexOtherItems = state.sidebarActive ? '-1' : '0'
+    Array.prototype.forEach.call(notFocusableSidebarItems, function (item) {
+      item.setAttribute('tabindex', tabindexOtherItems)
     })
 
-    const focusableItems = document.querySelectorAll('.js-sidebar-focussable')
-    Array.prototype.forEach.call(focusableItems, function (item) {
-      item.setAttribute('tabindex', 0)
+    const tabindexNavItems = state.sidebarActive ? '0' : '-1'
+    Array.prototype.forEach.call(focusableSidebarItems, function (item) {
+      item.setAttribute('tabindex', tabindexNavItems)
+    })
+
+    const notFocusableContactItems = document.querySelectorAll('.js-contact-focussable')
+    Array.prototype.forEach.call(notFocusableContactItems, function (item) {
+      item.setAttribute('tabindex', -1)
     })
   }
 }

@@ -5,6 +5,7 @@
       ref="closeContactButton"
       type="button"
       class="button close-button js-contact-focussable"
+      tabindex="-1"
       @click="closeContact"
     >
       <span class="sr-only">
@@ -39,6 +40,7 @@
                 name="name"
                 placeholder="Your name"
                 class="js-contact-focussable"
+                tabindex="-1"
                 @focus="onFocus"
                 @blur="onBlur"
               >
@@ -54,6 +56,7 @@
                 name="email"
                 placeholder="Your email"
                 class="js-contact-focussable"
+                tabindex="-1"
                 @focus="onFocus"
                 @blur="onBlur"
               >
@@ -69,6 +72,7 @@
                 name="phone"
                 placeholder="Your phone number"
                 class="js-contact-focussable"
+                tabindex="-1"
                 @focus="onFocus"
                 @blur="onBlur"
               >
@@ -82,13 +86,14 @@
                 name="message"
                 placeholder="How can I be of help?"
                 class="js-contact-focussable"
+                tabindex="-1"
                 @focus="onFocus"
                 @blur="onBlur"
               />
               <span class="error">Please add your message</span>
             </div>
 
-            <input type="submit" value="Send" class="button form-button js-contact-focussable">
+            <input type="submit" value="Send" class="button form-button js-contact-focussable" tabindex="-1">
           </form>
         </div>
 

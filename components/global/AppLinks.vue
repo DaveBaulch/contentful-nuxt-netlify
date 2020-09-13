@@ -4,22 +4,22 @@
       class="nav"
     >
       <li class="nav__item">
-        <nuxt-link to="/" class="nav__link js-sidebar-focussable">
+        <nuxt-link to="/" class="nav__link js-nav-focussable">
           Home
         </nuxt-link>
       </li>
       <li class="nav__item">
-        <nuxt-link to="/about" class="nav__link js-sidebar-focussable">
+        <nuxt-link to="/about" class="nav__link js-nav-focussable">
           About
         </nuxt-link>
       </li>
       <li class="nav__item">
-        <nuxt-link to="/work" class="nav__link js-sidebar-focussable">
+        <nuxt-link to="/work" class="nav__link js-nav-focussable">
           Work
         </nuxt-link>
       </li>
       <li class="nav__item">
-        <nuxt-link to="/cv" class="nav__link js-sidebar-focussable">
+        <nuxt-link to="/cv" class="nav__link js-nav-focussable">
           CV
         </nuxt-link>
       </li>

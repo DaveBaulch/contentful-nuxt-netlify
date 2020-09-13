@@ -29,20 +29,6 @@
 
 <script>
 export default {
-  created () {
-    this.$nuxt.$on('focus-open-contact-link', () => {
-      this.$refs.contactLink.focus()
-    })
-  },
-  beforeDestroy () {
-    this.$nuxt.$off('focus-open-contact-link')
-  },
-  methods: {
-    toggleContact () {
-      this.$store.dispatch('contact/toggleContact', 'open-contact-link')
-      this.$nextTick(() => this.$nuxt.$emit('focus-close-contact-button'))
-    }
-  }
 }
 </script>
 
