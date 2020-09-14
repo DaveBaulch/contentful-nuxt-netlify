@@ -132,8 +132,21 @@ export default {
 }
 
 .header-img--1 {
-  background: url('~assets/layout/bg.jpg') center center;
+  background: url('~assets/layout/bg1-xs.jpg') no-repeat right center;
   background-size: cover;
+
+  @include breakpoint(sm) {
+    background: url('~assets/layout/bg1-sm.jpg') no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(md) {
+    background: url('~assets/layout/bg1-md.jpg') no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(lg) {
+    background: url('~assets/layout/bg1-lg.jpg') no-repeat right center;
+    background-size: cover;
+  }
 }
 
 .header-img--2 {

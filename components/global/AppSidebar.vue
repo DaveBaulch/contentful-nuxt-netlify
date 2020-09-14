@@ -15,7 +15,7 @@
 
       <div class="sidebar-inner">
         <AppMobileLinks />
-        <OpenContactButton text="Contact me!" class="js-sidebar-focussable" tabindex="-1" />
+        <OpenContactButton2 text="Contact me!" class="js-sidebar-focussable" tabindex="-1" />
       </div>
     </div>
   </div>

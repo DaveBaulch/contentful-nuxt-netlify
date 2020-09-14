@@ -263,8 +263,10 @@ export default {
 
       if (this.whichOpenElementId === 'open-contact-link') {
         this.$nextTick(() => this.$nuxt.$emit('focus-open-contact-link'))
-      } else {
+      } else if (this.whichOpenElementId === 'open-contact-button') {
         this.$nextTick(() => this.$nuxt.$emit('focus-open-contact-button'))
+      } else {
+        this.$nextTick(() => this.$nuxt.$emit('focus-open-contact-button2'))
       }
     }
   }
