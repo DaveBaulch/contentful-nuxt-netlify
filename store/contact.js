@@ -3,13 +3,17 @@
 // state
 export const state = () => ({
   contactActive: false,
-  sidebarActive: false,
   formEntered: false,
   formSubmitted: false,
   formSuccess: false,
   formError: false,
   whichOpenButtonId: null
 })
+
+// getters
+export const getters = {
+  showContact: state => state.contactActive
+}
 
 // actions
 export const actions = {

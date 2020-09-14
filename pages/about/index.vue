@@ -1,9 +1,9 @@
 <template>
   <main>
     <div class="container">
-      <h2 class="page-title">
+      <h1 class="page-title">
         {{ aboutPageTitle }}
-      </h2>
+      </h1>
       <div v-html="aboutPageBody" />
     </div>
   </main>

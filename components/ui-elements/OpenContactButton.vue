@@ -1,5 +1,12 @@
 <template>
-  <button id="open-contact-button" ref="contactButton" class="button open-contact-button" @click="toggleContact">
+  <button
+    id="open-contact-button"
+    ref="contactButton"
+    class="button open-contact-button"
+    aria-controls="contact"
+    aria-expanded="false"
+    @click="toggleContact"
+  >
     <slot>
       <span v-if="text">{{ text }}</span>
     </slot>
@@ -12,6 +19,21 @@ export default {
     text: {
       type: String,
       default: null
+    }
+  },
+  computed: {
+    showContact () {
+      return this.$store.getters['contact/showContact']
+    }
+  },
+  watch: {
+    showContact (val) {
+      const contactButton = this.$refs.contactButton
+      if (contactButton.getAttribute('aria-expanded') === 'false') {
+        contactButton.setAttribute('aria-expanded', 'true')
+      } else {
+        contactButton.setAttribute('aria-expanded', 'false')
+      }
     }
   },
   created () {

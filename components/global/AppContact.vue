@@ -1,11 +1,21 @@
 <template>
-  <div id="contact" :class="{ visible: contactActive }" class="contact-wrapper">
+  <div
+    id="contact"
+    ref="contactPage"
+    :class="{ visible: showContact }"
+    class="contact-wrapper"
+    aria-label="Contact Form"
+    aria-expanded="false"
+    aria-hidden="true"
+  >
     <button
       id="close-button"
       ref="closeContactButton"
       type="button"
       class="button close-button js-contact-focussable"
       tabindex="-1"
+      aria-controls="contact"
+      aria-expanded="false"
       @click="closeContact"
     >
       <span class="sr-only">
@@ -15,7 +25,7 @@
 
     <div class="contact-inner">
       <div class="left-col">
-        <h2>It would be great to hear from you!</h2>
+        <h1>It would be great to hear from you!</h1>
         <p>Please send me a message if I can be of help in any way, or you'd just like to chat...</p>
       </div>
 
@@ -127,8 +137,11 @@ export default {
     }
   },
   computed: {
-    contactActive () {
-      return this.$store.state.contact.contactActive
+    // contactActive () {
+    //   return this.$store.state.contact.contactActive
+    // },
+    showContact () {
+      return this.$store.getters['contact/showContact']
     },
     whichOpenElementId () {
       return this.$store.state.contact.whichOpenButtonId
@@ -154,6 +167,21 @@ export default {
     },
     formError () {
       return this.$store.state.contact.formError
+    }
+  },
+  watch: {
+    showContact (val) {
+      const contactPage = this.$refs.contactPage
+      const closeContactButton = this.$refs.closeContactButton
+      if (contactPage.getAttribute('aria-expanded') === 'false') {
+        contactPage.setAttribute('aria-expanded', 'true')
+        contactPage.setAttribute('aria-hidden', 'false')
+        closeContactButton.setAttribute('aria-expanded', 'true')
+      } else {
+        contactPage.setAttribute('aria-expanded', 'false')
+        contactPage.setAttribute('aria-hidden', 'true')
+        closeContactButton.setAttribute('aria-expanded', 'false')
+      }
     }
   },
   created () {

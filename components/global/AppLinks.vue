@@ -23,13 +23,15 @@
           CV
         </nuxt-link>
       </li>
-      <!-- <li class="nav__item">
-        <nuxt-link to="/blog" class="nav__link js-sidebar-focussable">
-          Blog
-        </nuxt-link>
-      </li> -->
       <li class="nav__item nav-item__contact">
-        <button id="open-contact-link" ref="contactLink" class="nav-item__contact-link" @click="toggleContact">
+        <button
+          id="open-contact-link"
+          ref="contactLink"
+          class="nav-item__contact-link"
+          aria-controls="contact"
+          aria-expanded="false"
+          @click="toggleContact"
+        >
           Contact
         </button>
       </li>
@@ -39,6 +41,21 @@
 
 <script>
 export default {
+  computed: {
+    showContact () {
+      return this.$store.getters['contact/showContact']
+    }
+  },
+  watch: {
+    showContact (val) {
+      const contactLink = this.$refs.contactLink
+      if (contactLink.getAttribute('aria-expanded') === 'false') {
+        contactLink.setAttribute('aria-expanded', 'true')
+      } else {
+        contactLink.setAttribute('aria-expanded', 'false')
+      }
+    }
+  },
   created () {
     this.$nuxt.$on('focus-open-contact-link', () => {
       this.$refs.contactLink.focus()

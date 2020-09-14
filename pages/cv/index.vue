@@ -1,9 +1,9 @@
 <template>
   <main>
     <div class="container">
-      <h2 class="page-title">
+      <h1 class="page-title">
         {{ cvPageTitle }}
-      </h2>
+      </h1>
       <div v-html="cvPageBody" />
       <section v-for="(item, index) in cvPageItems" :key="index">
         <CvItem :item="item" />

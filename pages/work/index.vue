@@ -1,9 +1,9 @@
 <template>
   <main>
     <div class="container">
-      <h2 class="page-title">
+      <h1 class="page-title">
         {{ workPage.work.title }}
-      </h2>
+      </h1>
       <div v-html="$md.render(workPage.work.body)" />
       <section v-for="(item, index) in workPage.work.workItems" :key="index">
         <WorkItem :item="item" />
