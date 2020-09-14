@@ -115,7 +115,7 @@ export default {
   font-size: 6rem;
   font-weight: bold;
   color: $grey-dark;
-  opacity: 0.1;
+  opacity: 0.7;
   line-height: 1;
   text-align: right;
   position: relative;

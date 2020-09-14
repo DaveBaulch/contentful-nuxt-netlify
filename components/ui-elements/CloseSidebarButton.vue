@@ -3,6 +3,9 @@
     ref="closeSidebarButton"
     type="button"
     class="button close-sidebar-button"
+    aria-label="Primary Navigation"
+    aria-controls="sidebar"
+    aria-expanded="false"
     @click="toggleSidebar"
   >
     <span class="sr-only">
@@ -13,6 +16,21 @@
 
 <script>
 export default {
+  computed: {
+    showSidebar () {
+      return this.$store.getters['nav/showSidebar']
+    }
+  },
+  watch: {
+    showSidebar (val) {
+      const closeNavButton = this.$refs.closeSidebarButton
+      if (closeNavButton.getAttribute('aria-expanded') === 'false') {
+        closeNavButton.setAttribute('aria-expanded', 'true')
+      } else {
+        closeNavButton.setAttribute('aria-expanded', 'false')
+      }
+    }
+  },
   created () {
     this.$nuxt.$on('focus-close-nav-button', () => {
       this.$refs.closeSidebarButton.focus()
