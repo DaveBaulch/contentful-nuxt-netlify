@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <h2>{{ homePageTitle }}</h2>
+      <h1>{{ homePageTitle }}</h1>
       <div v-html="homePageBody" />
     </div>
   </main>

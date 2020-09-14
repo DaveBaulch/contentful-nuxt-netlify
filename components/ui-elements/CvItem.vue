@@ -1,9 +1,9 @@
 <template>
   <article v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" class="cv-item">
     <div class="cv-item__inner">
-      <h3 class="cv-item__position">
+      <h2 class="cv-item__position">
         {{ item.fields.position }}
-      </h3>
+      </h2>
       <div class="cv-item__company">
         {{ item.fields.company }}
       </div>
