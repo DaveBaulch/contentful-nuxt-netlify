@@ -6,7 +6,12 @@
     <div class="work-item__inner">
       <div class="work-item__left-col">
         <div class="work-item__img-wrapper">
-          <img :src="item.fields.image.fields.file.url" :alt="item.fields.image.fields.title" class="work-item__img">
+          <img
+            :src="item.fields.image.fields.file.url"
+            :alt="item.fields.image.fields.title"
+            class="work-item__img"
+            loading="lazy"
+          >
         </div>
       </div>
       <div class="work-item__right-col">

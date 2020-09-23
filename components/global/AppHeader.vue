@@ -150,18 +150,57 @@ export default {
 }
 
 .header-img--2 {
-  background: url('~assets/layout/bg2.jpg') center center;
+  background: url('~assets/layout/bg2-xs.jpg') no-repeat right center;
   background-size: cover;
+
+  @include breakpoint(sm) {
+    background: url('~assets/layout/bg2-sm.jpg') no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(md) {
+    background: url('~assets/layout/bg2-md.jpg') no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(lg) {
+    background: url('~assets/layout/bg2-lg.jpg') no-repeat right center;
+    background-size: cover;
+  }
 }
 
 .header-img--3 {
-  background: url('~assets/layout/bg3.jpg') center center;
+  background: url('~assets/layout/bg3-xs.jpg') no-repeat right center;
   background-size: cover;
+
+  @include breakpoint(sm) {
+    background: url('~assets/layout/bg3-sm.jpg') no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(md) {
+    background: url('~assets/layout/bg3-md.jpg') no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(lg) {
+    background: url('~assets/layout/bg3-lg.jpg') no-repeat right center;
+    background-size: cover;
+  }
 }
 
 .header-img--4 {
-  background: url('~assets/layout/bg4.jpg') center center;
+  background: url('~assets/layout/bg4-xs.jpg') no-repeat right center;
   background-size: cover;
+
+  @include breakpoint(sm) {
+    background: url('~assets/layout/bg4-sm.jpg') no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(md) {
+    background: url('~assets/layout/bg4-md.jpg') no-repeat right center;
+    background-size: cover;
+  }
+  @include breakpoint(lg) {
+    background: url('~assets/layout/bg4-lg.jpg') no-repeat right center;
+    background-size: cover;
+  }
 }
 
 .bg-enter-active,
