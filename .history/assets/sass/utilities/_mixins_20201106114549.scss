@@ -1,3 +1,130 @@
+@mixin pageSize {
+  height: $page-height;
+  width: $page-width;
+}
+
+@mixin bodyHeight {
+  height: $page-height - $header-height;
+}
+
+@mixin pageFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include pageSize;
+}
+
+@mixin flexVerticalCenter {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexCenter {
+  justify-content: center;
+  @include flexVerticalCenter;
+}
+
+@mixin inlineFlexCenter {
+  @include flexCenter;
+  display: inline-flex;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin fill {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin figureImageFill($height: null, $borderRadius: true) {
+  position: relative;
+  font-size: 0; // removes any white space
+  @if $height {
+    height: $height;
+  }
+  @if $borderRadius {
+    border-radius: $border-radius $border-radius 0 0;
+  }
+
+  > img:first-child {
+    @include absoluteFill;
+    @include imageCover;
+    @if $borderRadius {
+      border-radius: $border-radius $border-radius 0 0;
+    }
+  }
+}
+
+@mixin imageCover {
+  object-fit: cover;
+  @include fill;
+}
+
+@mixin absoluteFill {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include fill;
+}
+
+@mixin absoluteBottomRight {
+  position: absolute;
+  top: $page-height;
+  left: $page-width;
+  transform: translate(-100%, -100%);
+}
+
+@mixin grid($noPadding: false) {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+
+    @if $noPadding == false {
+      padding: $padding;
+    }
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  @for $i from 2 through 4 {
+    &[data-grid="#{$i}"] {
+      > * {
+        &:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+          flex-grow: 0;
+          flex-basis: 100% / $i;
+          max-width: 100% / $i;
+        }
+      }
+    }
+  }
+}
+
+@mixin list {
+  margin-left: $margin;
+
+  li:not(:last-child) {
+    margin-bottom: $margin / 2;
+  }
+}
+
+
+
 // uses breakpoints defined in variables.scss
 @mixin breakpoint($point, $value: 0) {
   @if $point==xs {
@@ -38,6 +165,7 @@
   position: absolute !important;
   width: 1px !important;
 }
+
 
 // breakpoints
 // uses breakpoints defined in variables.scss

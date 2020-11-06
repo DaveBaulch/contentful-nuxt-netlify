@@ -1,0 +1,237 @@
+@mixin pageSize {
+  height: $page-height;
+  width: $page-width;
+}
+
+@mixin bodyHeight {
+  height: $page-height - $header-height;
+}
+
+@mixin pageFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include pageSize;
+}
+
+@mixin flexVerticalCenter {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexCenter {
+  justify-content: center;
+  @include flexVerticalCenter;
+}
+
+@mixin inlineFlexCenter {
+  @include flexCenter;
+  display: inline-flex;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin fill {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin figureImageFill($height: null, $borderRadius: true) {
+  position: relative;
+  font-size: 0; // removes any white space
+  @if $height {
+    height: $height;
+  }
+  @if $borderRadius {
+    border-radius: $border-radius $border-radius 0 0;
+  }
+
+  > img:first-child {
+    @include absoluteFill;
+    @include imageCover;
+    @if $borderRadius {
+      border-radius: $border-radius $border-radius 0 0;
+    }
+  }
+}
+
+@mixin imageCover {
+  object-fit: cover;
+  @include fill;
+}
+
+@mixin absoluteFill {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include fill;
+}
+
+@mixin absoluteBottomRight {
+  position: absolute;
+  top: $page-height;
+  left: $page-width;
+  transform: translate(-100%, -100%);
+}
+
+@mixin grid($noPadding: false) {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+
+    @if $noPadding == false {
+      padding: $padding;
+    }
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  @for $i from 2 through 4 {
+    &[data-grid="#{$i}"] {
+      > * {
+        &:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+          flex-grow: 0;
+          flex-basis: 100% / $i;
+          max-width: 100% / $i;
+        }
+      }
+    }
+  }
+}
+
+@mixin list {
+  margin-left: $margin;
+
+  li:not(:last-child) {
+    margin-bottom: $margin / 2;
+  }
+}
+
+@mixin textGradient($top: $brand-primary, $bottom: $brand-light) {
+  background: linear-gradient($top, $bottom);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin fullscreenCloseButton {
+  position: fixed;
+  top: $padding;
+  left: $page-width - $padding - $fullscreen-close-button-size;
+  border-radius: 50%;
+  width: $fullscreen-close-button-size;
+  height: $fullscreen-close-button-size;
+  background-color: $brand-white;
+  font-size: $font-largest;
+  padding: 0;
+  @include flexCenter;
+}
+
+// uses breakpoints defined in variables.scss
+@mixin breakpoint($point, $value: 0) {
+  @if $point==xs {
+    @media screen and (max-width: $xs-max) {
+      @content;
+    }
+  } @else if $point==sm {
+    @media screen and (min-width: $sm-min) {
+      @content;
+    }
+  } @else if $point==md {
+    @media screen and (min-width: $md-min) {
+      @content;
+    }
+  } @else if $point==lg {
+    @media screen and (min-width: $lg-min) {
+      @content;
+    }
+  } @else if $point==xl {
+    @media screen and (min-width: $xl-min) {
+      @content;
+    }
+  } @else {
+    @media screen and ($point: $value) {
+      @content;
+    }
+  }
+}
+
+// accessible text
+@mixin sr-only {
+  border: 0 !important;
+  // clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: (-1px) !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+
+// breakpoints
+// uses breakpoints defined in variables.scss
+@mixin breakpoint($point, $value: 0) {
+  @if $point==xs {
+    @media screen and (max-width: $xs-max) {
+      @content;
+    }
+  } @else if $point==sm {
+    @media screen and (min-width: $sm-min) {
+      @content;
+    }
+  } @else if $point==md {
+    @media screen and (min-width: $md-min) {
+      @content;
+    }
+  } @else if $point==lg {
+    @media screen and (min-width: $lg-min) {
+      @content;
+    }
+  } @else if $point==xl {
+    @media screen and (min-width: $xl-min) {
+      @content;
+    }
+  } @else {
+    @media screen and ($point: $value) {
+      @content;
+    }
+  }
+}
+
+@mixin between-breakpoints($min, $max) {
+  @media screen and (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+// background content
+@mixin content-background($bg-colour: $white) {
+  background-color: $bg-colour;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+@mixin full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}

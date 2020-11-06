@@ -1,9 +1,0 @@
-.two-columns {
-  display: flex;
-  height: 100%;
-
-  > * {
-    flex: 0 0 50%;
-    height: 100%;
-  }
-}

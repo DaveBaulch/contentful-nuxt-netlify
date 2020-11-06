@@ -17,6 +17,9 @@ $line-height: 1.5;
 $page-width: 100%;
 $page-height: auto;
 
+// Elements
+$header-height: 150px;
+
 // Colors
 $white: #fff;
 $grey: #e0e9ee;
@@ -126,6 +129,7 @@ $brand-light-alt: $blue-pale;
   background-color: $brand-light-alt;
 }
 
+
 // Font Sizes
 $font-largest: 3rem;
 $font-larger: 2.6rem;
@@ -159,6 +163,9 @@ $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
+
+// Suggestion - provide a minimum/maximum so media queries don't overlap when required
+// use as max/min values for mixins for responsive utilities etc
 
 $xs-min: 0;
 $xs-max: ($breakpoint-sm - 1);

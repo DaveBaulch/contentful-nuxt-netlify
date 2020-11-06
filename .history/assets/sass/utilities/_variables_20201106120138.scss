@@ -160,6 +160,9 @@ $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
 
+// Suggestion - provide a minimum/maximum so media queries don't overlap when required
+// use as max/min values for mixins for responsive utilities etc
+
 $xs-min: 0;
 $xs-max: ($breakpoint-sm - 1);
 

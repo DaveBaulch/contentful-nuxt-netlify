@@ -17,6 +17,32 @@ $line-height: 1.5;
 $page-width: 100%;
 $page-height: auto;
 
+// Elements
+$header-height: 150px;
+$logo-width: 62px;
+$fullscreen-close-button-size: 40px;
+$info-button-size: 30px;
+$modal-close-button-size: 40px;
+
+// Buttons
+$button-vertical-padding: 10px;
+$button-horizontal-padding: 30px;
+$button-icon-size: 30px;
+$button-border-radius: 20px;
+$button-font-size: 14px;
+$button-light-box-shadow-color: #002f6c;
+
+// Menu
+$menu-side-padding: 10px;
+$menu-image-size: 30px;
+$menu-button-padding: 14px;
+$menu-width: 150px;
+$menu-icon-size: 44px;
+
+// Tabs
+$tabs-menu-width: 71px;
+$tabs-menu-height: 70px;
+
 // Colors
 $white: #fff;
 $grey: #e0e9ee;
@@ -76,6 +102,13 @@ $bullet-light-blue: #43a2d8;
 $bullet-dark-red: #dc3689;
 $bullet-light-red: #dc5c36;
 
+// Buttons
+$button-dark-blue: $blue;
+$button-light-blue: #43a2d8;
+
+// White button
+$btn-white-text: #10396b;
+
 // Brand Colours
 $brand-white: $white;
 $brand-white-alt: $light-grey;
@@ -126,6 +159,16 @@ $brand-light-alt: $blue-pale;
   background-color: $brand-light-alt;
 }
 
+// Brand Gradients
+$gradient-blue: $blue, $blue-light;
+$gradient-cyan: $cyan, $cyan-dark;
+$gradient-white: $white, $grey;
+$gradient-orange: $orange-dark, $orange;
+
+//Tabs
+$gradient-tabs: #005da5, #011025;
+$gradient-tabs-active: $gradient-cyan;
+
 // Font Sizes
 $font-largest: 3rem;
 $font-larger: 2.6rem;
@@ -159,6 +202,9 @@ $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
+
+// Suggestion - provide a minimum/maximum so media queries don't overlap when required
+// use as max/min values for mixins for responsive utilities etc
 
 $xs-min: 0;
 $xs-max: ($breakpoint-sm - 1);

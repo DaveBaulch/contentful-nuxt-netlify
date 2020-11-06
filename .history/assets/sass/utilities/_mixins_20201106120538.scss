@@ -1,3 +1,21 @@
+@mixin pageSize {
+  height: $page-height;
+  width: $page-width;
+}
+
+@mixin bodyHeight {
+  height: $page-height - $header-height;
+}
+
+@mixin absoluteBottomRight {
+  position: absolute;
+  top: $page-height;
+  left: $page-width;
+  transform: translate(-100%, -100%);
+}
+
+
+
 // uses breakpoints defined in variables.scss
 @mixin breakpoint($point, $value: 0) {
   @if $point==xs {

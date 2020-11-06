@@ -1,0 +1,123 @@
+button {
+  cursor: pointer;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  pointer-events: none;
+
+  &:not([src]) {
+    visibility: hidden;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul:not([class]) {
+  list-style: disc;
+  // @include list;
+}
+
+ol:not([class]) {
+  list-style: decimal;
+  // @include list;
+}
+
+// .toggle-icons {
+//   position: absolute;
+//   bottom: 5px;
+//   right: 10px;
+
+//   button {
+//     width: 30px;
+//     height: 30px;
+//     margin-left: 5px;
+//     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+//     border-radius: 50%;
+//     padding: 0;
+//     background-repeat: no-repeat;
+//   }
+//   .paste-icon {
+//     background-image: url('~assets/modal-tabs/paste-off.svg');
+//     &.active {
+//       background-image: url('~assets/modal-tabs/paste-on.svg');
+//     }
+//   }
+//   .vs-icon {
+//     background-image: url('~assets/modal-tabs/vs-off.svg');
+//     &.active {
+//       background-image: url('~assets/modal-tabs/vs-on.svg');
+//     }
+//   }
+//   .manual-icon {
+//     background-image: url('~assets/modal-tabs/manual-off.svg');
+//     &.active {
+//       background-image: url('~assets/modal-tabs/manual-on.svg');
+//     }
+//   }
+//   .sonicare-icon {
+//     background-image: url('~assets/modal-tabs/sonic-off.svg');
+//     &.active {
+//       background-image: url('~assets/modal-tabs/sonic-on.svg');
+//     }
+//   }
+
+//   // manual/features
+//   .dial-icon {
+//     background-image: url('~assets/modal-tabs/dial-off.svg');
+//     &.active {
+//       background-image: url('~assets/modal-tabs/dial-on.svg');
+//     }
+//   }
+//   .list-icon {
+//     background-image: url('~assets/modal-tabs/list-off.svg');
+//     &.active {
+//       background-image: url('~assets/modal-tabs/list-on.svg');
+//     }
+//   }
+//   .play-icon {
+//     background-image: url('~assets/modal-tabs/play-off.svg');
+//     &.active {
+//       background-image: url('~assets/modal-tabs/play-on.svg');
+//     }
+//   }
+
+//   // paste/features
+//   .tooth-icon {
+//     background-image: url('~assets/modal-tabs/tooth-off.svg');
+//     &.active {
+//       background-image: url('~assets/modal-tabs/tooth-on.svg');
+//     }
+//   }
+//   .drop-icon {
+//     background-image: url('~assets/modal-tabs/drop-off.svg');
+//     &.active {
+//       background-image: url('~assets/modal-tabs/drop-on.svg');
+//     }
+//   }
+
+//   .tooth-shield-icon {
+//     background-image: url('~assets/modal-tabs/tooth-shield-off.svg');
+//     &.active {
+//       background-image: url('~assets/modal-tabs/tooth-shield-on.svg');
+//     }
+//   }
+
+//   .flask-icon {
+//     background-image: url('~assets/modal-tabs/flask-off.svg');
+//     &.active {
+//       background-image: url('~assets/modal-tabs/flask-on.svg');
+//     }
+//   }
+
+//   .tooth-sensitive-icon {
+//     background-image: url('~assets/modal-tabs/tooth-sensitive-off.svg');
+//     &.active {
+//       background-image: url('~assets/modal-tabs/tooth-sensitive-on.svg');
+//     }
+//   }
+// }

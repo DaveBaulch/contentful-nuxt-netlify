@@ -1,3 +1,13 @@
+.full-page-logo {
+  position: absolute;
+  top: $padding;
+  left: $padding;
+}
+
+.full-page-video {
+  @include pageFixed;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -7,7 +17,7 @@
 
   @include breakpoint(sm) {
     padding: 0 25px;
-  }
+  }  
 
   @include breakpoint(md) {
     padding: 0 30px;
@@ -29,11 +39,12 @@
 
   @include breakpoint(sm) {
     padding: 1rem 3rem;
-  }
+  }  
 
   @include breakpoint(md) {
     padding: 2rem 4rem;
     font-size: 6rem;
     top: -135px;
-  }
+  }  
 }
+

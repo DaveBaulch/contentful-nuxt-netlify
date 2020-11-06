@@ -19,6 +19,7 @@ a {
 
 ul:not([class]) {
   list-style: disc;
+  // @include list;
 }
 
 ol:not([class]) {

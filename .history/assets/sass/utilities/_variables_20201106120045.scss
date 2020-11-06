@@ -17,6 +17,32 @@ $line-height: 1.5;
 $page-width: 100%;
 $page-height: auto;
 
+// Elements
+$header-height: 150px;
+$logo-width: 62px;
+$fullscreen-close-button-size: 40px;
+$info-button-size: 30px;
+$modal-close-button-size: 40px;
+
+// Buttons
+$button-vertical-padding: 10px;
+$button-horizontal-padding: 30px;
+$button-icon-size: 30px;
+$button-border-radius: 20px;
+$button-font-size: 14px;
+$button-light-box-shadow-color: #002f6c;
+
+// Menu
+$menu-side-padding: 10px;
+$menu-image-size: 30px;
+$menu-button-padding: 14px;
+$menu-width: 150px;
+$menu-icon-size: 44px;
+
+// Tabs
+$tabs-menu-width: 71px;
+$tabs-menu-height: 70px;
+
 // Colors
 $white: #fff;
 $grey: #e0e9ee;
@@ -159,6 +185,9 @@ $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
+
+// Suggestion - provide a minimum/maximum so media queries don't overlap when required
+// use as max/min values for mixins for responsive utilities etc
 
 $xs-min: 0;
 $xs-max: ($breakpoint-sm - 1);
